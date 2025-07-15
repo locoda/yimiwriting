@@ -36,6 +36,7 @@ export type SiteConfig = {
   subscribe?: Subscribe;
   poemsPerPage?: number;
   fictionsPerPage?: number;
+  otherPerPage?: number;
 };
 
 const siteConfig: SiteConfig = {
@@ -52,17 +53,17 @@ const siteConfig: SiteConfig = {
         text: 'Home',
         href: '/'
     },
-    {
-        text: 'Poems',
-        href: '/poems'
-    },
-    {
-        text: 'Fictions',
-        href: '/fictions'
-    },
     // {
-    //     text: 'Tags',
-    //     href: '/tags'
+    //     text: 'Poems',
+    //     href: '/poems'
+    // },
+    // {
+    //     text: 'Fictions',
+    //     href: '/fictions'
+    // },
+    // {
+    //     text: 'Other',
+    //     href: '/other'
     // }
   ],
   footerNavLinks: [
@@ -127,6 +128,7 @@ const siteConfig: SiteConfig = {
   // },
   poemsPerPage: 8,
   fictionsPerPage: 8,
+  otherPerPage: 8,
 };
 
 export default siteConfig;

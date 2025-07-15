@@ -5,27 +5,27 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 export async function getStaticPaths() {
-    const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
-    const poemCount = poems.length;
-    return poems.map((poem, index) => ({
-        params: { id: poem.id },
+    const other = (await getCollection('other')).sort(sortItemsByDateDesc);
+    const workCount = other.length;
+    return other.map((work, index) => ({
+        params: { id: work.id },
         props: {
-            poem,
-            prevPoem: index + 1 !== poemCount ? poems[index + 1] : null,
-            nextPoem: index !== 0 ? poems[index - 1] : null
+            work,
+            prevWork: index + 1 !== workCount ? other[index + 1] : null,
+            nextWork: index !== 0 ? other[index - 1] : null
         }
     }));
 }
 
 type Props = {
-    poem: CollectionEntry<'poems'>;
-    prevPoem: CollectionEntry<'poems'>;
-    nextPoem: CollectionEntry<'poems'>;
+    work: CollectionEntry<'other'>;
+    prevWork: CollectionEntry<'other'>;
+    nextWork: CollectionEntry<'other'>;
 };
 
-const { poem, prevPoem, nextPoem } = Astro.props;
-const { title, description, seo } = poem.data;
-const { Content } = await render(poem);
+const { work, prevWork, nextWork } = Astro.props;
+const { title, description, seo } = work.data;
+const { Content } = await render(work);
 ---
 
 <BaseLayout title={seo?.title ?? title} description={seo?.description ?? description} image={seo?.image} pageType="article" showHeader={false}>
@@ -38,11 +38,11 @@ const { Content } = await render(poem);
         </div>
     </article>
     {
-        (prevPoem || nextPoem) && (
+        (prevWork || nextWork) && (
             <div class="my-16 sm:my-24">
                 <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">View Next</h2>
-                {nextPoem && <PostPreview post={nextPoem} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevPoem && <PostPreview post={prevPoem} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {nextWork && <PostPreview post={nextWork} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {prevWork && <PostPreview post={prevWork} class="mb-10 sm:mb-12" headingLevel="h3" />}
             </div>
         )
     }

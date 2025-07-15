@@ -44,4 +44,15 @@ const fictions = defineCollection({
     })
 });
 
-export const collections = { pages, fictions, poems};
+const other = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/other' }),
+    schema: z.object({
+        title: z.string(),
+        description: z.string().optional(),
+        publishDate: z.coerce.date(),
+        isFeatured: z.boolean().default(false),
+        seo: seoSchema.optional()
+    })
+});
+
+export const collections = { pages, fictions, poems, other};

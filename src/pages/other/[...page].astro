@@ -8,11 +8,11 @@ import siteConfig from '../../data/site-config';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const poems = (await getCollection('poems')).sort(sortItemsByDateDesc);
-    return paginate(poems, { pageSize: siteConfig.poemsPerPage || 6 });
+    const other = (await getCollection('other')).sort(sortItemsByDateDesc);
+    return paginate(other, { pageSize: siteConfig.otherPerPage || 6 });
 }
 
-type Props = { page: Page<CollectionEntry<'poems'>> };
+type Props = { page: Page<CollectionEntry<'other'>> };
 
 const { page } = Astro.props;
 const portfolio = page.data;
@@ -24,7 +24,7 @@ const portfolio = page.data;
     image={{ src: '/dante-preview.jpg', alt: 'The preview of the site' }}
     showHeader={false}
 >
-    <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Poems</h1>
-    {portfolio.map((poem) => <PostPreview post={poem} class="mb-10 sm:mb-12" />)}
+    <h1 class="mb-12 text-2xl leading-tight font-serif italic sm:mb-16 sm:text-4xl">Other Works</h1>
+    {portfolio.map((other) => <PostPreview post={other} class="mb-10 sm:mb-12" />)}
     <Pagination page={page} class="my-16 sm:my-24" />
 </BaseLayout>

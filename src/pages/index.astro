@@ -3,8 +3,7 @@ import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
-import PoemPreview from "../components/PoemPreview.astro";
-import FictionPreview from "../components/FictionPreview.astro";
+import PostPreview from "../components/PostPreview.astro";
 import siteConfig from "../data/site-config";
 import { sortItemsByDateDesc } from "../utils/data-utils";
 
@@ -24,8 +23,8 @@ const featuredFictions = fictions.filter(({ data }) => data.isFeatured);
           Featured Fictions
         </h2>
         {featuredFictions.map((fiction) => (
-          <FictionPreview
-            fiction={fiction}
+          <PostPreview
+            post={fiction}
             class="mb-10 sm:mb-12"
             headingLevel="h3"
           />
@@ -35,14 +34,15 @@ const featuredFictions = fictions.filter(({ data }) => data.isFeatured);
         </div>
       </div>
     )
-  }{
+  }
+  {
     featuredPoems?.length > 0 && (
       <div class="mb-16 sm:mb-24">
         <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">
           Featured Poems
         </h2>
         {featuredPoems.map((poem) => (
-          <PoemPreview poem={poem} class="mb-10 sm:mb-12" headingLevel="h3" />
+          <PostPreview post={poem} class="mb-10 sm:mb-12" headingLevel="h3" />
         ))}
         <div class="mt-12 sm:mt-16">
           <Button href="/poems">View All Poems</Button>

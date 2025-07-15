@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import FictionPreview from '../../components/FictionPreview.astro';
+import PostPreview from '../../components/PostPreview.astro';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 
@@ -41,8 +41,8 @@ const { Content } = await render(fiction);
         (prevFiction || nextFiction) && (
             <div class="my-16 sm:my-24">
                 <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">View Next</h2>
-                {nextFiction && <FictionPreview fiction={nextFiction} class="mb-10 sm:mb-12" headingLevel="h3" />}
-                {prevFiction && <FictionPreview fiction={prevFiction} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {nextFiction && <PostPreview post={nextFiction} class="mb-10 sm:mb-12" headingLevel="h3" />}
+                {prevFiction && <PostPreview post={prevFiction} class="mb-10 sm:mb-12" headingLevel="h3" />}
             </div>
         )
     }
