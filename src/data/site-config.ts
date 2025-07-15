@@ -34,8 +34,8 @@ export type SiteConfig = {
   socialLinks?: Link[];
   hero?: Hero;
   subscribe?: Subscribe;
-  postsPerPage?: number;
-  projectsPerPage?: number;
+  poemsPerPage?: number;
+  fictionsPerPage?: number;
 };
 
 const siteConfig: SiteConfig = {
@@ -48,18 +48,18 @@ const siteConfig: SiteConfig = {
   //     alt: 'Dante - Astro.js and Tailwind CSS theme'
   // },
   headerNavLinks: [
-    // {
-    //     text: 'Home',
-    //     href: '/'
-    // },
-    // {
-    //     text: 'Projects',
-    //     href: '/projects'
-    // },
-    // {
-    //     text: 'Blog',
-    //     href: '/blog'
-    // },
+    {
+        text: 'Home',
+        href: '/'
+    },
+    {
+        text: 'Poems',
+        href: '/poems'
+    },
+    {
+        text: 'Fictions',
+        href: '/fictions'
+    },
     // {
     //     text: 'Tags',
     //     href: '/tags'
@@ -70,14 +70,14 @@ const siteConfig: SiteConfig = {
     //   text: "Home",
     //   href: "/",
     // },
-    // {
-    //   text: "About",
-    //   href: "/about",
-    // },
-    // {
-    //   text: "Contact",
-    //   href: "/contact",
-    // },
+    {
+      text: "About",
+      href: "/about",
+    },
+    {
+      text: "Contact",
+      href: "/contact",
+    },
     // {
     //     text: 'Terms',
     //     href: '/terms'
@@ -108,25 +108,25 @@ const siteConfig: SiteConfig = {
   hero: {
     title: "Yimi Writes Things",
     text: 
-    "<p>Yimi Lu writes about people who don’t say what they mean in her own Chinese accent. Born in Shanghai, she now pretends to settle in Northern California. She builds code blocks by day and disassembles herself by night.</p> <p>Find her at yimiwriting@outlook.com.</p> <p>More work is coming soon... Yimi is still writing!</p>",
+    "<p>Yimi Lu writes about people who don’t say what they mean in her own Chinese accent. Born in Shanghai, she now pretends to settle in Northern California. She builds code blocks by day and disassembles herself by night.</p><p>More work is coming soon... Yimi is still writing!</p>",
     // image: {
     //     src: '/hero.jpeg',
     //     alt: 'A person sitting at a desk in front of a computer'
     // },
-    // actions: [
-    //   {
-    //     text: "Get in Touch",
-    //     href: "/contact",
-    //   },
-    // ],
+    actions: [
+      {
+        text: "Get in Touch",
+        href: "/contact",
+      },
+    ],
   },
   // subscribe: {
   //     title: 'Subscribe to Dante Newsletter',
   //     text: 'One update per week. All the latest posts directly in your inbox.',
   //     formUrl: '#'
   // },
-  postsPerPage: 8,
-  projectsPerPage: 8,
+  poemsPerPage: 8,
+  fictionsPerPage: 8,
 };
 
 export default siteConfig;

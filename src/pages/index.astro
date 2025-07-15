@@ -1,46 +1,53 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Button from '../components/Button.astro';
-import Hero from '../components/Hero.astro';
-import PostPreview from '../components/PostPreview.astro';
-import ProjectPreview from '../components/ProjectPreview.astro';
-import siteConfig from '../data/site-config';
-import { sortItemsByDateDesc } from '../utils/data-utils';
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
+import PoemPreview from "../components/PoemPreview.astro";
+import FictionPreview from "../components/FictionPreview.astro";
+import siteConfig from "../data/site-config";
+import { sortItemsByDateDesc } from "../utils/data-utils";
 
-const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-const featuredPosts = posts.filter(({ data }) => data.isFeatured);
+const poems = (await getCollection("poems")).sort(sortItemsByDateDesc);
+const featuredPoems = poems.filter(({ data }) => data.isFeatured);
 
-const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
-const featuredProjects = projects.filter(({ data }) => data.isFeatured);
+const fictions = (await getCollection("fictions")).sort(sortItemsByDateDesc);
+const featuredFictions = fictions.filter(({ data }) => data.isFeatured);
 ---
 
 <BaseLayout description={siteConfig.description} image={siteConfig.image}>
-    <Hero />
-    {
-        featuredProjects?.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Projects</h2>
-                {featuredProjects.map((project) => (
-                    <ProjectPreview project={project} class="mb-10 sm:mb-12" headingLevel="h3" />
-                ))}
-                <div class="mt-12 sm:mt-16">
-                    <Button href="/projects">View All Projects</Button>
-                </div>
-            </div>
-        )
-    }
-    {
-        featuredPosts?.length > 0 && (
-            <div class="mb-16 sm:mb-24">
-                <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">Writing</h2>
-                {featuredPosts.map((post) => (
-                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
-                ))}
-                <div class="mt-12 sm:mt-16">
-                    <Button href="/blog">View All Posts</Button>
-                </div>
-            </div>
-        )
-    }
+  <Hero />
+  {
+    featuredFictions?.length > 0 && (
+      <div class="mb-16 sm:mb-24">
+        <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">
+          Featured Fictions
+        </h2>
+        {featuredFictions.map((fiction) => (
+          <FictionPreview
+            fiction={fiction}
+            class="mb-10 sm:mb-12"
+            headingLevel="h3"
+          />
+        ))}
+        <div class="mt-12 sm:mt-16">
+          <Button href="/fictions">View All Fictions</Button>
+        </div>
+      </div>
+    )
+  }{
+    featuredPoems?.length > 0 && (
+      <div class="mb-16 sm:mb-24">
+        <h2 class="mb-12 text-xl font-serif italic sm:mb-16 sm:text-2xl">
+          Featured Poems
+        </h2>
+        {featuredPoems.map((poem) => (
+          <PoemPreview poem={poem} class="mb-10 sm:mb-12" headingLevel="h3" />
+        ))}
+        <div class="mt-12 sm:mt-16">
+          <Button href="/poems">View All Poems</Button>
+        </div>
+      </div>
+    )
+  }
 </BaseLayout>
