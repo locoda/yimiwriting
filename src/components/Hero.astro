@@ -1,29 +1,54 @@
 ---
-import { marked } from 'marked';
-import siteConfig from '../data/site-config';
-import Button from './Button.astro';
+interface Props {
+	title: string;
+	tagline?: string;
+	align?: 'start' | 'center';
+}
 
-const hero = siteConfig.hero;
+const { align = 'center', tagline, title } = Astro.props;
 ---
 
-{
-    (hero?.title || hero?.image?.src || hero?.text || (hero?.actions && hero.actions.length > 0)) && (
-        <section class="w-full flex flex-col gap-8 mb-16 sm:mb-24">
-            {hero.title && <h1 class="text-3xl leading-tight font-serif font-medium sm:text-5xl sm:leading-tight">{hero.title}</h1>}
-            {hero.image?.src && (
-                <figure>
-                    <img class="w-full" src={hero.image.src} loading="lazy" decoding="async" alt={hero.image.alt || ''} />
-                    {hero.image.caption && <figcaption class="mt-1.5 text-xs sm:text-sm">{hero.image.caption}</figcaption>}
-                </figure>
-            )}
-            {hero.text && <div class="max-w-none prose sm:prose-lg" set:html={marked.parse(hero.text)} />}
-            {hero.actions && hero.actions.length > 0 && (
-                <div class="flex flex-wrap gap-4">
-                    {hero.actions.map((action) => (
-                        <Button href={action.href}>{action.text}</Button>
-                    ))}
-                </div>
-            )}
-        </section>
-    )
-}
+<div class:list={['hero stack gap-4', align]}>
+	<div class="stack gap-2">
+		<h1 class="title">{title}</h1>
+		{tagline && <p class="tagline">{tagline}</p>}
+	</div>
+	<slot />
+</div>
+
+<style>
+	.hero {
+		font-size: var(--text-lg);
+		text-align: center;
+	}
+
+	.title,
+	.tagline {
+		max-width: 37ch;
+		margin-inline: auto;
+	}
+
+	.title {
+		font-size: var(--text-3xl);
+		color: var(--gray-0);
+	}
+
+	@media (min-width: 50em) {
+		.hero {
+			font-size: var(--text-xl);
+		}
+
+		.start {
+			text-align: start;
+		}
+
+		.start .title,
+		.start .tagline {
+			margin-inline: unset;
+		}
+
+		.title {
+			font-size: var(--text-5xl);
+		}
+	}
+</style>

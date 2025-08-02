@@ -1,58 +1,17 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const seoSchema = z.object({
-    title: z.string().min(5).max(120).optional(),
-    description: z.string().min(15).max(160).optional(),
-    image: z
-        .object({
-            src: z.string(),
-            alt: z.string().optional()
-        })
-        .optional(),
-    pageType: z.enum(['website', 'article']).default('website')
-});
-
-const pages = defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages' }),
-    schema: z.object({
-        title: z.string(),
-        seo: seoSchema.optional()
-    })
-});
-
-const poems = defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/poems' }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishDate: z.coerce.date(),
-        isFeatured: z.boolean().default(false),
-        seo: seoSchema.optional()
-    })
-});
-
-
-const fictions = defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/fictions' }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishDate: z.coerce.date(),
-        isFeatured: z.boolean().default(false),
-        seo: seoSchema.optional()
-    })
-});
-
-const other = defineCollection({
-    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/other' }),
-    schema: z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        publishDate: z.coerce.date(),
-        isFeatured: z.boolean().default(false),
-        seo: seoSchema.optional()
-    })
-});
-
-export const collections = { pages, fictions, poems, other};
+export const collections = {
+	work: defineCollection({
+		// Load Markdown files in the src/content/work directory.
+		loader: glob({ base: './src/content/work', pattern: '**/*.md' }),
+		schema: z.object({
+			title: z.string(),
+			description: z.string(),
+			publishDate: z.coerce.date(),
+			tags: z.array(z.string()),
+			img: z.string(),
+			img_alt: z.string().optional(),
+		}),
+	}),
+};
