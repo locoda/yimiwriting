@@ -21,8 +21,8 @@ const projects = (await getCollection("work"))
 ---
 
 <BaseLayout>
-  <div class="stack gap-20 lg:gap-48">
-    <div class="wrapper stack gap-8 lg:gap-20">
+  <div class="flex flex-col gap-4 flex-grow gap-20 lg:gap-48">
+    <div class="wrapper flex flex-col gap-4 flex-grow gap-8 lg:gap-20">
       <header class="hero text-lg md:text-xl">
         <Hero
           intro="Hello, my name is"
@@ -48,9 +48,9 @@ const projects = (await getCollection("work"))
       <!-- <Skills /> -->
     </div>
 
-    <main class="wrapper stack gap-20 lg:gap-48">
+    <main class="wrapper flex flex-col gap-4 flex-grow gap-20 lg:gap-48">
       <section class="section with-background with-cta">
-        <header class="section-header stack gap-2 lg:gap-4">
+        <header class="section-header flex flex-col gap-4 flex-grow gap-2 lg:gap-4">
           <h3>Recent Works</h3>
           <!-- <p>Take a look below at some of my featured work for clients from the past few years.</p> -->
         </header>
@@ -76,7 +76,7 @@ const projects = (await getCollection("work"))
       </section>
 
       <!-- <section class="section with-background bg-variant">
-				<header class="section-header stack gap-2 lg:gap-4">
+				<header class="section-header flex flex-col gap-4 flex-grow gap-2 lg:gap-4">
 					<h3>Mentions</h3>
 					<p>
 						I have been fortunate enough to receive praise for my work in several publications. Take
