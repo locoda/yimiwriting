@@ -34,7 +34,7 @@ const { Content } = await render(entry);
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
 							<div class="tags">
-								{entry.data.tags.map((t) => <Pill>{t}</Pill>)}
+								{ <Pill>{entry.data.type}</Pill>}
 							</div>
 							<p class="description">{entry.data.description}</p>
 						</div>
