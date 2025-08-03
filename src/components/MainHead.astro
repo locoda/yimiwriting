@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-	title = 'Yimi Lu: Personal Site',
-	description = 'The personal site of Yimi Lu',
+	title = 'Yimi Lu | Writing ',
+	description = ' Writing site from Yimi Lu',
 } = Astro.props;
 ---
 
@@ -25,7 +25,7 @@ const {
 	href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,700;1,400&family=Rubik:wght@500;600&display=swap"
 	rel="stylesheet"
 />
-<script is:inline>
+<!-- <script is:inline>
 	// This code is inlined in the head to make dark mode instant & blocking.
 	const getThemePreference = () => {
 		if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
@@ -44,4 +44,4 @@ const {
 		});
 		observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 	}
-</script>
+</script> -->
