@@ -20,6 +20,7 @@ module.exports = {
           light: '#ffc6c7',
           DEFAULT: '#ff8ba7', // maps to "accent"
           dark: '#ad4466',
+          card: '#f3d2c1',
           overlay: '#594a4e',
           subtleOverlay: '#594a4e',
           textOver: '#ffc6c7',
@@ -31,6 +32,7 @@ module.exports = {
       fontFamily: {
         body: ['"Libertinus Serif"', 'system-ui', 'serif'],
         brand: ['"Libertinus Sans"', 'system-ui', 'sans-serif'],
+        art: ['"Lavishly Yours"', 'cursive']
       },
       
     },
