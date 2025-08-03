@@ -25,35 +25,5 @@ const { title, description } = Astro.props;
       <slot />
       <Footer />
     </div>
-
-    <style>
-      .backgrounds {
-        min-height: 100vh;
-
-		
-        /* isolation: isolate; */
-        background: hsla(18, 76%, 85%, 1);
-
-        background: linear-gradient(
-          135deg,
-          hsla(18, 76%, 85%, 1) 0%,
-          hsla(203, 69%, 84%, 1) 100%
-        );
-
-        background: -moz-linear-gradient(
-          135deg,
-          hsla(18, 76%, 85%, 1) 0%,
-          hsla(203, 69%, 84%, 1) 100%
-        );
-
-        background: -webkit-linear-gradient(
-          135deg,
-          hsla(18, 76%, 85%, 1) 0%,
-          hsla(203, 69%, 84%, 1) 100%
-        );
-
-        filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#F6CFBE", endColorstr="#B9DCF2", GradientType=1 );
-      }
-    </style>
   </body>
 </html>
