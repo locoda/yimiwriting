@@ -1,29 +1,25 @@
 ---
-// Learn about using Astro layouts:
-// https://docs.astro.build/en/core-concepts/layouts/
-
 import Footer from "../components/Footer.astro";
-// Component Imports
 import MainHead from "../components/MainHead.astro";
 import Nav from "../components/Nav.astro";
 
 interface Props {
-  title?: string | undefined;
-  description?: string | undefined;
+  title?: string;
+  description?: string;
 }
 
 const { title, description } = Astro.props;
 ---
 
-<html lang="en">
+<html lang="en" class="scroll-smooth">
   <head>
     <MainHead title={title} description={description} />
   </head>
-  <body>
-    <div class="stack backgrounds">
-      <Nav />
+  <body class="min-h-screen flex flex-col font-body bg-[#faeee7]">
+    <Nav />
+    <main class="flex-grow px-6 pt-6 sm:px-10 sm:pt-10">
       <slot />
-      <Footer />
-    </div>
+    </main>
+    <Footer />
   </body>
 </html>
