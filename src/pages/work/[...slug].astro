@@ -29,7 +29,7 @@ const { Content } = await render(entry);
 	<div class="flex flex-col gap-4 flex-grow gap-20">
 		<div class="flex flex-col gap-4 flex-grow gap-15">
 			<header>
-				<div class="wrapper flex flex-col gap-4 flex-grow gap-2">
+				<div class="w-full max-w-6xl mx-auto px-6 flex flex-col gap-4 flex-grow gap-2">
 					<a class="back-link" href="/work/">Back to Works</a>
 					<Hero title={entry.data.title} align="start">
 						<div class="details">
@@ -41,7 +41,7 @@ const { Content } = await render(entry);
 					</Hero>
 				</div>
 			</header>
-			<main class="wrapper">
+			<main class="w-full max-w-6xl mx-auto px-6">
 				<div class="flex flex-col gap-4 flex-grow gap-10 content">
 					<!-- {entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />} -->
 					<div class="content">

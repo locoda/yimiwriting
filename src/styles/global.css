@@ -38,9 +38,3 @@
   /* Transitions */
   /* --theme-transition: 0.2s ease-in-out; */
 }
-.wrapper {
-  width: 100%;
-  max-width: 83rem;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-}
