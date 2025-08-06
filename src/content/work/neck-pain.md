@@ -1,6 +1,6 @@
 ---
 title: Neck Pain
-publishDate: 2025-08-02
+publishDate: 2099-08-07
 img: /assets/neck-pain.jpg
 img_alt: Neck Pain
 description: For the pain. For the touch.

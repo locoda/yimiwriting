@@ -36,7 +36,7 @@ const { Content } = await render(entry);
 							<div class="tags">
 								{ <Pill>{entry.data.type}</Pill>}
 							</div>
-							<p class="description">{entry.data.description}</p>
+							<!-- <p class="description">{entry.data.description}</p> -->
 						</div>
 					</Hero>
 				</div>
@@ -44,7 +44,7 @@ const { Content } = await render(entry);
 			<main class="w-full max-w-6xl mx-auto px-6">
 				<div class="flex flex-col gap-4 flex-grow gap-10 content">
 					<!-- {entry.data.img && <img src={entry.data.img} alt={entry.data.img_alt || ''} />} -->
-					<div class="content">
+					<div class="content text-xl">
 						<Content />
 					</div>
 				</div>

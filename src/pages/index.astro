@@ -7,7 +7,7 @@ import CallToAction from "../components/CallToAction.astro";
 import Grid from "../components/Grid.astro";
 import Hero from "../components/Hero.astro";
 import Icon from "../components/Icon.astro";
-import PortfolioPreview from "../components/PortfolioPreview.astro";
+import WorkCard from "../components/WorkCard.astro";
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from "../layouts/BaseLayout.astro";
 
@@ -60,7 +60,7 @@ const projects = (await getCollection("work"))
             {
               projects.map((project) => (
                 <li>
-                  <PortfolioPreview project={project} />
+                  <WorkCard project={project} />
                 </li>
               ))
             }

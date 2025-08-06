@@ -12,7 +12,7 @@ export const collections = {
 			type: z.string(),
 			img: z.string(),
 			img_alt: z.string().optional(),
-			external_url: z.string().optional(),
+			url: z.string().optional(),
 		}),
 	}),
 };

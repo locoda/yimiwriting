@@ -1,0 +1,43 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Pill from "./Pill.astro";
+
+interface Props {
+  project: CollectionEntry<"work">;
+}
+
+const { data, id } = Astro.props.project;
+const now = new Date();
+const published = new Date(data.publishDate);
+---
+
+<div
+  class="relative bg-gray-900 border-2 border-gray-200 rounded-xl p-6 flex flex-col justify-between gap-4"
+>
+  <h1 class="text-center text-4xl text-grey200 font-brand">{data.title}</h1>
+
+  <p class="text-gray-400 text-base">{data.description}</p>
+
+  <div class="flex items-center gap-2 justify-between">
+    {(<Pill>{data.type}</Pill>)}
+
+    {
+      now < published ? (
+        <span class="text-sm text-gray-400 italic">Forthcoming...</span>
+      ) : data.url ? (
+        <a
+          href={data.url}
+          target="_blank"
+          rel="noopener"
+          class="text-sm text-accent-regular underline"
+        >
+          View Work →
+        </a>
+      ) : (
+        <a href={`/work/${id}`} class="text-sm text-accent-regular underline">
+          View Work →
+        </a>
+      )
+    }
+  </div>
+</div>
