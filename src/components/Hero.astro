@@ -1,29 +1,54 @@
 ---
-interface Props {
-  intro?: string; // e.g. "Yimi Lu"
-  title: string; // e.g. "Hello, my name is"
-  tagline?: string;
-  align?: "start" | "center";
-}
-
-const { title, intro, tagline, align = "center" } = Astro.props;
+import { Picture } from "astro:assets";
+// import heroImage from "/portrait.jpg";
+import Link from "@components/ui/link.astro";
+import { Icon } from "astro-icon/components";
 ---
 
-<section
-  class={`flex flex-col gap-4 ${align === "center" ? "items-center text-center" : "items-start text-left"}`}
+<main
+  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24"
 >
-  {
-    intro && (
-      <h2 class="text-4xl md:text-5xl font-medium text-gray-200 font-brand">
-        {intro}
-      </h2>)
-  }
-
-  <h1 class="text-6xl md:text-7xl font-medium text-gray-200 font-brand">
-    {title}
-  </h1>
-
-  {tagline && <p class="text-lg text-gray-400 max-w-prose">{tagline}</p>}
-
-  <slot />
-</section>
+  <div class="py-6 md:order-1 md:block">
+    <Picture src="/portrait.png" alt="Yimi's avatar" width="480" height="480" />
+  </div>
+  <div>
+    <h1
+      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
+    >
+      Hi there, this is Yimi
+    </h1>
+    <!-- <p class="text-lg mt-4 text-slate-600 max-w-xl">
+      Astroship is a starter template for startups, marketing websites & landing
+      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly
+      create any website with this starter.
+    </p> -->
+    <div class="mt-6 flex flex-col sm:flex-row gap-3">
+      <Link
+        href="/work"
+        style="outline"
+        class="flex gap-1 items-center justify-center"
+      >
+        <!-- <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" /> -->
+        My Work
+      </Link>
+      <Link
+        href="/about"
+        style="outline"
+        class="flex gap-1 items-center justify-center"
+      >
+        <!-- <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" /> -->
+        About Me
+      </Link>
+      <!-- <Link
+        size="lg"
+        style="outline"
+        rel="noopener"
+        href="https://github.com/surjithctly/astroship"
+        class="flex gap-1 items-center justify-center"
+        target="_blank">
+        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
+         GitHub Repo
+      </Link> -->
+    </div>
+  </div>
+</main>

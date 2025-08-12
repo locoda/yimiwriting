@@ -1,16 +1,19 @@
----
-const currentYear = new Date().getFullYear();
----
-
-<footer class="text-center text-sm text-gray-400 py-6 sm:py-16">
-    <p>
-      Made with 
-      <a
-        href="https://astro.build/"
-        class="underline underline-offset-4 decoration-transparent hover:decoration-current transition"
-      >
-        Astro
-      </a>
-    </p>
-    <p>&copy; {currentYear} Yimi Lu</p>
+<footer class="my-20">
+  <p class="text-center text-sm text-slate-500">
+    Copyright © {new Date().getFullYear()} Yimi. All rights reserved.
+  </p>
+  <!--
+    Can we ask you a favor 🙏
+    Please keep this backlink on your website if possible.
+    or Purchase a commercial license from https://web3templates.com
+  -->
+  <p class="text-center text-xs text-slate-500 mt-1">
+    Made by <a
+      href="https://web3templates.com"
+      target="_blank"
+      rel="noopener"
+      class="hover:underline">
+      Web3Templates
+    </a>
+  </p>
 </footer>

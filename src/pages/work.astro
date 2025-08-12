@@ -1,34 +1,73 @@
 ---
-import { getCollection } from 'astro:content';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import WorkCard from '../components/WorkCard.astro';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from "astro:content";
+import { Picture } from "astro:assets";
+import Layout from "@layouts/Layout.astro";
+import Container from "@components/container.astro";
+import Sectionhead from "@components/sectionhead.astro";
 
-const projects = (await getCollection('work')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+// Filter blog entries with 'draft: false' & date before current date
+const publishedWorkEntries = await getCollection("work", ({ data }) => {
+  return !data.draft && data.publishDate < new Date();
+});
+
+// Sort content entries by publication date
+publishedWorkEntries.sort(function (a, b) {
+  return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+});
 ---
 
-<BaseLayout
-	title="My Work | Yimi Lu"
-	description="Learn about Yimi Lu's most recent projects"
->
-	<div class="w-full max-w-6xl mx-auto px-6 flex flex-col gap-4 flex-grow gap-20">
-		<main class="flex flex-col gap-4 flex-grow gap-8">
-			<Hero
-				title="Works"
-			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li>
-							<WorkCard project={project} />
-						</li>
-					))
-				}
-			</Grid>
-		</main>
-		
-	</div>
-</BaseLayout>
+<Layout title="Work">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">Work</Fragment>
+      <Fragment slot="desc">
+        The pieces I've created. Forthcoming...
+      </Fragment>
+    </Sectionhead>
+    <main class="mt-16">
+      <ul class="grid gap-16 max-w-4xl mx-auto">
+        {
+          publishedWorkEntries.map((workPostEntry, index) => (
+            <li>
+              <a href={`/work/${workPostEntry.slug}`}>
+                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                  <Picture
+                    src={workPostEntry.data.image.src}
+                    alt={workPostEntry.data.image.alt}
+                    sizes="(max-width: 800px) 100vw, 800px"
+                    width={800}
+                    height={600}
+                    loading={index <= 2 ? "eager" : "lazy"}
+                    decoding={index <= 2 ? "sync" : "async"}
+                    class="w-full rounded-md object-cover object-center bg-white"
+                  />
+                  <div>
+                    <span class="text-blue-400 uppercase tracking-wider text-sm font-medium">
+                      {workPostEntry.data.category}
+                    </span>
+
+                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                      {workPostEntry.data.title}
+                    </h2>
+
+                    <div class="flex gap-2 mt-3">
+                      {/* <span class="text-gray-400">
+                        {workPostEntry.data.author}
+                      </span> */}
+                      {/* <span class="text-gray-400">• </span> */}
+                      <time
+                        class="text-gray-400"
+                        datetime={workPostEntry.data.publishDate.toISOString()}>
+                        {workPostEntry.data.publishDate.toDateString()}
+                      </time>
+                    </div>
+                  </div>
+                </div>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </main>
+  </Container>
+</Layout>
