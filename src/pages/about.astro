@@ -1,47 +1,32 @@
 ---
-import { getCollection } from "astro:content";
-import { Picture } from "astro:assets";
 import Layout from "@layouts/Layout.astro";
 import Container from "@components/container.astro";
 import Sectionhead from "@components/sectionhead.astro";
-
-// Filter team entries with 'draft: false' & date before current date
-const publishedTeamMembers = await getCollection("team", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
-});
 ---
 
 <Layout title="About">
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
-      <Fragment slot="desc"> Who I am and Where you can find me.
-</Fragment>
+      <Fragment slot="desc"> Who I am and Where you can find me. </Fragment>
     </Sectionhead>
 
     <div class="flex flex-col gap-3 mx-auto max-w-4xl mt-16">
-      <h2 class="font-bold text-3xl text-gray-800">
-        Bio
-      </h2>
+      <h2 class="font-bold text-3xl text-gray-800">Bio</h2>
       <p class="text-lg leading-relaxed text-slate-500">
-        Yimi Lu writes about people who don’t say what they mean in her own Chinese accent. Born in Shanghai, she now pretends to settle in Northern California. She builds code blocks by day and disassembles herself by night.
+        Yimi Lu writes about people who don’t say what they mean in her own
+        Chinese accent. Born in Shanghai, she now pretends to settle in Northern
+        California. She builds code blocks by day and disassembles herself by
+        night.
       </p>
 
-       <h2 class="font-bold text-3xl text-gray-800">
-        Instagram / Threads / X 
-      </h2>
-      <p class="text-lg leading-relaxed text-slate-500">
-        @yimiwriting
-        </p>
+      <h2 class="font-bold text-3xl text-gray-800">Instagram / Threads / X</h2>
+      <p class="text-lg leading-relaxed text-slate-500">@yimiwriting</p>
 
-               <h2 class="font-bold text-3xl text-gray-800">
-        Email 
-      </h2>
+      <h2 class="font-bold text-3xl text-gray-800">Email</h2>
       <p class="text-lg leading-relaxed text-slate-500">
         yimiwriting@outlook.com
-        </p>
-
+      </p>
     </div>
-
   </Container>
 </Layout>
