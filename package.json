@@ -29,7 +29,7 @@
     "tailwindcss": "^3.4.17"
   },
   "optionalDependencies": {
-    "@esbuild/darwin-x64": "^0.21.5",
+    "@esbuild/darwin-x64": "^0.25.8",
     "@rollup/rollup-darwin-x64": "^4.46.2"
   }
 }
