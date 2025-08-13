@@ -11,7 +11,7 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^3.1.9",
+    "@astrojs/mdx": "^4.3.3",
     "@astrojs/sitemap": "^3.4.2",
     "@astrojs/tailwind": "^5.1.5",
     "@fontsource-variable/bricolage-grotesque": "^5.2.8",
@@ -20,7 +20,7 @@
     "@iconify-json/simple-icons": "^1.2.47",
     "@iconify-json/uil": "^1.2.3",
     "@tailwindcss/typography": "^0.5.16",
-    "astro": "^4.16.18",
+    "astro": "^5.12.9",
     "astro-icon": "^1.1.5",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^0.8.4",
