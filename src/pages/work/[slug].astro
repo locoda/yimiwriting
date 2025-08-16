@@ -20,7 +20,7 @@ const { Content } = await entry.render();
 <Layout title={entry.data.title}>
   <Container>
     <div class="mx-auto max-w-3xl mt-14">
-                    <span class="text-hh15-accent uppercase tracking-wider">
+      <span class="text-hh15-accent uppercase tracking-wider">
         {entry.data.category}
       </span>
       <span class="text-hh15-muted">•</span>
@@ -42,15 +42,16 @@ const { Content } = await entry.render();
       </h1>
     </div>
 
-  <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
-    <Content />
-  </div>
-  <div class="text-center mt-16">
-    <a
-      href="/work"
-      class="bg-gray-100 px-5 py-3 rounded-md hover:bg-gray-200 transition"
-      >← Back to Work</a
-    >
-  </div>
+    <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
+      <Content />
+    </div>
+    <div class="text-center mt-16">
+      <a
+        href="/work"
+        class="bg-[#3b2d2b] text-white px-5 py-3 rounded-md hover:bg-[#2a1f1d] transition"
+      >
+        ← Back to Work
+      </a>
+    </div>
   </Container>
 </Layout>

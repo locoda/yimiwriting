@@ -1,5 +1,5 @@
 ---
-draft: false
+draft: true
 title: "The Complete Guide to Full Stack Web Development"
 snippet: "Ornare cum cursus laoreet sagittis nunc fusce posuere per euismod dis vehicula a, semper fames lacus maecenas dictumst pulvinar neque enim non potenti. Torquent hac sociosqu eleifend potenti."
 image: {
