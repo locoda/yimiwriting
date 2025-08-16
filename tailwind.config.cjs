@@ -4,7 +4,7 @@ module.exports = {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-        colors: {
+      colors: {
         hh15: {
           bg: "#faeee7",
           fg: "#33272a",
@@ -17,13 +17,9 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: [
-          "Bricolage Grotesque Variable",
-          "Inter Variable",
-          "Inter",
-          ...defaultTheme.fontFamily.sans,
-        ],
-      },
+        serif: ['"Libertinus Serif"', 'Times', ...defaultTheme.fontFamily.serif],
+        sans: ['"Libertinus Sans"', 'Noto Sans SC', 'system-ui', ...defaultTheme.fontFamily.sans],
+      }
     },
   },
   plugins: [require("@tailwindcss/typography")],

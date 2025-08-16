@@ -34,7 +34,11 @@ publishedWorkEntries.sort(function (a, b) {
                     : `/work/${workPostEntry.slug}`
                 }
                 target={workPostEntry.data.external ? "_blank" : undefined}
-                rel={workPostEntry.data.external ? "noopener noreferrer" : undefined}
+                rel={
+                  workPostEntry.data.external
+                    ? "noopener noreferrer"
+                    : undefined
+                }
               >
                 <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
                   <Picture
@@ -48,28 +52,26 @@ publishedWorkEntries.sort(function (a, b) {
                     class="w-full rounded-md object-cover object-center bg-white"
                   />
                   <div>
-                    <span class="text-hh15-accent uppercase tracking-wider text-sm font-medium">
+                    <span class="text-hh15-accent uppercase tracking-wider">
                       {workPostEntry.data.category}
                     </span>
+                    <span class="text-hh15-muted">•</span>
+                    <time
+                      class="text-hh15-muted"
+                      datetime={workPostEntry.data.publishDate.toISOString()}
+                    >
+                      {workPostEntry.data.publishDate.toLocaleDateString(
+                        "en-US",
+                        {
+                          year: "numeric",
+                          month: "long",
+                        }
+                      )}
+                    </time>
 
                     <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
                       {workPostEntry.data.title}
                     </h2>
-
-                    <div class="flex gap-2 mt-3">
-                      <time
-                        class="text-hh15-muted"
-                        datetime={workPostEntry.data.publishDate.toISOString()}
-                      >
-                        {workPostEntry.data.publishDate.toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "long", // 可以改成 "2-digit" 显示数字月份
-                          }
-                        )}
-                      </time>
-                    </div>
                   </div>
                 </div>
               </a>
