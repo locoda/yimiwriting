@@ -4,25 +4,32 @@ import { Picture } from "astro:assets";
 import Link from "./ui/link.astro";
 ---
 
-<main
-  class="grid lg:grid-cols-2 place-items-center pb-4 md:pt-8 md:pb-16"
->
-  <div class="md:py-6 md:order-1 md:block">
+<main class="grid lg:grid-cols-2 place-items-center pb-4 md:pt-8 md:pb-16">
+  <div class="relative md:py-6 md:order-1 md:block">
     <Picture src="/portrait.png" alt="Yimi's avatar" width="480" height="480" />
   </div>
   <div>
     <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter"
+      class="text-5xl lg:text-6xl font-bold lg:tracking-tight xl:tracking-tighter"
     >
-      Hi there, this is Yimi
+      Hi there, this is <span class="relative inline-block">
+        Yimi
+        <span class="absolute bottom-1 left-0 w-full h-2 bg-hh15-accent -z-10"
+        ></span>
+      </span>
     </h1>
+
+    <div class="mt-4 h-2 w-40 rounded-full bg-hh15-accent]"></div>
+
     <!-- <p class="text-lg mt-4 text-hh15-fg max-w-xl">
       Astroship is a starter template for startups, marketing websites & landing
       pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly
       create any website with this starter.
     </p> -->
+
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
       <Link
+        size="xl"
         href="/work"
         style="primary"
         class="flex items-center justify-center"
@@ -31,8 +38,9 @@ import Link from "./ui/link.astro";
         My Work
       </Link>
       <Link
+        size="xl"
         href="/about"
-        style="primary"
+        style="outline"
         class="flexitems-center justify-center"
       >
         <!-- <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" /> -->
