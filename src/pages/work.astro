@@ -20,16 +20,22 @@ publishedWorkEntries.sort(function (a, b) {
   <Container>
     <Sectionhead>
       <Fragment slot="title">Work</Fragment>
-      <Fragment slot="desc">
-        The pieces I've created. Forthcoming...
-      </Fragment>
+      <Fragment slot="desc"> The pieces I've created. Forthcoming... </Fragment>
     </Sectionhead>
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
         {
           publishedWorkEntries.map((workPostEntry, index) => (
             <li>
-              <a href={`/work/${workPostEntry.slug}`}>
+              <a
+                href={
+                  workPostEntry.data.external
+                    ? workPostEntry.data.external
+                    : `/work/${workPostEntry.slug}`
+                }
+                target={workPostEntry.data.external ? "_blank" : undefined}
+                rel={workPostEntry.data.external ? "noopener noreferrer" : undefined}
+              >
                 <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
                   <Picture
                     src={workPostEntry.data.image.src}
@@ -51,14 +57,17 @@ publishedWorkEntries.sort(function (a, b) {
                     </h2>
 
                     <div class="flex gap-2 mt-3">
-                      {/* <span class="text-gray-400">
-                        {workPostEntry.data.author}
-                      </span> */}
-                      {/* <span class="text-gray-400">• </span> */}
                       <time
                         class="text-gray-400"
-                        datetime={workPostEntry.data.publishDate.toISOString()}>
-                        {workPostEntry.data.publishDate.toDateString()}
+                        datetime={workPostEntry.data.publishDate.toISOString()}
+                      >
+                        {workPostEntry.data.publishDate.toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long", // 可以改成 "2-digit" 显示数字月份
+                          }
+                        )}
                       </time>
                     </div>
                   </div>
