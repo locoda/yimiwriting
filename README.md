@@ -25,6 +25,15 @@ This project is a customized Astro-based website inspired by the Astroship start
 └── tsconfig.json    # TypeScript paths and options
 ```
 
+### Color Palette
+
+The site uses a pastel theme anchored by a neutral background (`#faeee7`) and dark text (`#33272a`). Accent hues are adjusted for better contrast:
+
+- Primary accent: `#e65073`
+- Accent 2: `#f4a7b9`
+- Accent 3: `#9cdba8`
+- Neutral border tone: `#e8d8cf`
+
 ### Key Concepts
 
 - **Astro components (`.astro`)**: Combine HTML, JS/TS, and framework-agnostic templating. Components under `src/components` encapsulate common UI elements.
