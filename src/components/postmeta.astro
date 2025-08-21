@@ -1,0 +1,12 @@
+---
+interface Props {
+  category: string;
+  publishDate: Date;
+}
+const { category, publishDate } = Astro.props as Props;
+---
+<span class="text-hh15-accent uppercase tracking-wider">{category}</span>
+<span class="text-hh15-muted">•</span>
+<time class="text-hh15-muted" datetime={publishDate.toISOString()}>
+  {publishDate.toLocaleDateString("en-US", { year: "numeric", month: "long" })}
+</time>

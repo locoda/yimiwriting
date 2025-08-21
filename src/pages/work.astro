@@ -4,6 +4,7 @@ import { Picture } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
+import PostMeta from "../components/postmeta.astro";
 
 // Filter blog entries with 'draft: false' & date before current date
 const publishedWorkEntries = await getCollection("work", ({ data }) => {
@@ -52,22 +53,10 @@ publishedWorkEntries.sort(function (a, b) {
                     class="w-full rounded-md object-cover object-center bg-white"
                   />
                   <div>
-                    <span class="text-hh15-accent uppercase tracking-wider">
-                      {workPostEntry.data.category}
-                    </span>
-                    <span class="text-hh15-muted">•</span>
-                    <time
-                      class="text-hh15-muted"
-                      datetime={workPostEntry.data.publishDate.toISOString()}
-                    >
-                      {workPostEntry.data.publishDate.toLocaleDateString(
-                        "en-US",
-                        {
-                          year: "numeric",
-                          month: "long",
-                        }
-                      )}
-                    </time>
+                    <PostMeta
+                      category={workPostEntry.data.category}
+                      publishDate={workPostEntry.data.publishDate}
+                    />
 
                     <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
                       {workPostEntry.data.title}
