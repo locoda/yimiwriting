@@ -1,0 +1,14 @@
+---
+const { title } = Astro.props;
+---
+<h2 class="font-bold font-sans text-3xl text-hh15-fg">
+  <span class="relative inline-block">
+    <span class="relative z-10">{title}</span>
+    <span
+      class="pointer-events-none absolute left-0 right-0 bottom-1 h-1 bg-hh15-accent -z-10 -rotate-[2deg] rounded-sm"
+    ></span>
+  </span>
+</h2>
+<p class="text-lg leading-relaxed text-hh15-muted pb-4">
+  <slot />
+</p>
