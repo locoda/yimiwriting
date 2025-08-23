@@ -1,6 +1,7 @@
 ---
 import Container from "../container.astro";
 import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
+import { Icon } from "astro-icon/components";
 
 const menuitems = [
   // {
@@ -65,6 +66,28 @@ const menuitems = [
               </li>
             ))
           }
+          <li>
+            <a
+              href="https://twitter.com/yimiwriting"
+              target="_blank"
+              rel="noopener"
+              aria-label="Twitter"
+              class="flex lg:px-3 py-2 items-center text-hh15-muted hover:text-hh15-accent"
+            >
+              <Icon name="simple-icons:twitter" class="size-5" />
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://instagram.com/yimiwriting"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+              class="flex lg:px-3 py-2 items-center text-hh15-muted hover:text-hh15-accent"
+            >
+              <Icon name="simple-icons:instagram" class="size-5" />
+            </a>
+          </li>
         </ul>
         <!-- <div class="lg:hidden flex items-center mt-3 gap-4">
           <Link href="#" style="muted" block size="md">Log in</Link>
