@@ -4,58 +4,51 @@ import { Picture } from "astro:assets";
 import Link from "./ui/link.astro";
 ---
 
-<main class="grid lg:grid-cols-2 place-items-center pb-4 md:pt-8 md:pb-16">
+<main
+  class="grid gap-8 lg:grid-cols-2 items-center pb-4 md:pt-8 md:pb-16"
+>
   <div class="relative md:py-6 md:order-1 md:block">
-    <Picture src="/portrait.png" alt="Yimi's avatar" width="480" height="480" />
+    <Picture
+      src="/portrait.png"
+      alt="Yimi's avatar"
+      width="480"
+      height="480"
+      class="rounded-full shadow-2xl ring-4 ring-hh15-accent/20"
+    />
   </div>
-  <div>
-    <h1
-      class="text-5xl lg:text-6xl font-sans lg:tracking-tight xl:tracking-tighter"
-    >
-      Hi there, this is
-      <span class="relative inline-block font-bold">
-        Yimi
-        <span
-          class="absolute bottom-1 left-0 w-full h-2 bg-hh15-accent -z-10 -rotate-[2deg] rounded-sm"
-        ></span>
+  <div class="text-center lg:text-left">
+    <h1 class="text-5xl lg:text-6xl font-sans font-bold">
+      <span
+        class="block bg-gradient-to-r from-hh15-accent to-hh15-accent3 bg-clip-text text-transparent"
+      >
+        Hi, I'm Yimi
       </span>
     </h1>
 
-    <!-- <p class="text-lg mt-4 text-hh15-fg max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly
-      create any website with this starter.
-    </p> -->
+    <p class="text-lg mt-6 text-hh15-muted max-w-xl mx-auto lg:mx-0">
+      I explore tech, design, and the craft of writing—sharing insights and
+      stories along the way.
+    </p>
 
-    <div class="mt-12 md:mt-16 flex flex-col sm:flex-row gap-3 font-sans">
+    <div
+      class="mt-8 md:mt-12 flex flex-col sm:flex-row gap-3 font-sans justify-center lg:justify-start"
+    >
       <Link
         size="xl"
         href="/work"
         style="primary"
         class="flex items-center justify-center"
       >
-        <!-- <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" /> -->
         My Work
       </Link>
       <Link
         size="xl"
         href="/about"
         style="outline"
-        class="flexitems-center justify-center"
+        class="flex items-center justify-center"
       >
-        <!-- <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" /> -->
         About Me
       </Link>
-      <!-- <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-         GitHub Repo
-      </Link> -->
     </div>
   </div>
 </main>
