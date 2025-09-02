@@ -3,15 +3,17 @@ const { align = "center" } = Astro.props;
 ---
 
 <div class:list={["mt-16", align === "center" && "text-center"]}>
-  <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-    <span class="relative inline-block">
+  <h1 class="font-serif font-bold text-6xl md:text-8xl leading-none tracking-tight">
+    <span class="text-hh15-accent">
       <slot name="title">Title</slot>
-      <span
-        class="absolute bottom-1 left-0 w-full h-2 bg-hh15-accent -z-10 -rotate-[2deg] rounded-sm"
-      ></span>
     </span>
   </h1>
-  <p class="text-lg mt-4 text-hh15-muted">
+  <p
+    class:list={[
+      "mt-6 text-lg md:text-xl text-hh15-muted",
+      align === "center" && "max-w-md mx-auto",
+    ]}
+  >
     <slot name="desc">Some description goes here</slot>
   </p>
 </div>
