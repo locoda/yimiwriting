@@ -7,7 +7,7 @@ image: {
     alt: "Ceramics. Clay. Hands."
 }
 publishDate: "2025-12-31 11:59"
-category: "Poem"
+category: "Short Story"
 # external: "https://citronreview.com/2025/06/29/how-i-knew-him/"
 ---
 
