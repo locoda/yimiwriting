@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "The Fluid"
-magazine: "The Orange Rose Literary Magazine, Issue 3"
+magazine: "The Orange Rose, Issue 3"
 image: {
     src: "https://images.unsplash.com/photo-1585071769659-f116cbdadbca?q=80&w=1170",
     alt: "melting down"
