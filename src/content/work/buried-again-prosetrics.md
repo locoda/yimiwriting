@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Buried Again"
-snippet: "Prosetrics, Whelve Issue, September 2025"
+magazine: "Prosetrics, Whelve Issue, September 2025"
 image: {
     src: "https://images.unsplash.com/photo-1499976311613-703e57dd2e53?q=80&w=1074",
     alt: "Ceramics. Clay. Hands."

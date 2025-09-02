@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "One Flower"
-snippet: "ELLIE Magazine"
+magazine: "ELLIE Magazine, 2025"
 image: {
     src: "https://images.unsplash.com/photo-1471899236350-e3016bf1e69e?q=80&w=1171",
     alt: "Pink gerbera up close"

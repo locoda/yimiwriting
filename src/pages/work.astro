@@ -48,10 +48,12 @@ const now = new Date();
                     category={workPostEntry.data.category}
                     publishDate={workPostEntry.data.publishDate}
                   />
-
                   <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
                     {workPostEntry.data.title}
                   </h2>
+                  <span class="text-hh15-muted">
+                    {workPostEntry.data.magazine}
+                  </span>
                 </div>
               </div>
             );
@@ -64,7 +66,9 @@ const now = new Date();
               ? workPostEntry.data.external
               : `/work/${workPostEntry.slug}`;
             const target = workPostEntry.data.external ? "_blank" : undefined;
-            const rel = workPostEntry.data.external ? "noopener noreferrer" : undefined;
+            const rel = workPostEntry.data.external
+              ? "noopener noreferrer"
+              : undefined;
 
             return (
               <li>
