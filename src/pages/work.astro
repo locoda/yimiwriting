@@ -30,37 +30,46 @@ const now = new Date();
         {
           workEntries.map((workPostEntry, index) => {
             const isForthcoming = workPostEntry.data.publishDate > now;
-            const url = !isForthcoming && workPostEntry.data.external
+
+            const content = (
+              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                <Picture
+                  src={workPostEntry.data.image.src}
+                  alt={workPostEntry.data.image.alt}
+                  sizes="(max-width: 800px) 100vw, 800px"
+                  width={800}
+                  height={600}
+                  loading={index <= 2 ? "eager" : "lazy"}
+                  decoding={index <= 2 ? "sync" : "async"}
+                  class="w-full rounded-md object-cover object-center bg-white"
+                />
+                <div>
+                  <PostMeta
+                    category={workPostEntry.data.category}
+                    publishDate={workPostEntry.data.publishDate}
+                  />
+
+                  <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    {workPostEntry.data.title}
+                  </h2>
+                </div>
+              </div>
+            );
+
+            if (isForthcoming) {
+              return <li>{content}</li>;
+            }
+
+            const url = workPostEntry.data.external
               ? workPostEntry.data.external
               : `/work/${workPostEntry.slug}`;
-            const target = !isForthcoming && workPostEntry.data.external ? "_blank" : undefined;
-            const rel = !isForthcoming && workPostEntry.data.external ? "noopener noreferrer" : undefined;
+            const target = workPostEntry.data.external ? "_blank" : undefined;
+            const rel = workPostEntry.data.external ? "noopener noreferrer" : undefined;
 
             return (
               <li>
                 <a href={url} target={target} rel={rel}>
-                  <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                    <Picture
-                      src={workPostEntry.data.image.src}
-                      alt={workPostEntry.data.image.alt}
-                      sizes="(max-width: 800px) 100vw, 800px"
-                      width={800}
-                      height={600}
-                      loading={index <= 2 ? "eager" : "lazy"}
-                      decoding={index <= 2 ? "sync" : "async"}
-                      class="w-full rounded-md object-cover object-center bg-white"
-                    />
-                    <div>
-                      <PostMeta
-                        category={workPostEntry.data.category}
-                        publishDate={workPostEntry.data.publishDate}
-                      />
-
-                      <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                        {workPostEntry.data.title}
-                      </h2>
-                    </div>
-                  </div>
+                  {content}
                 </a>
               </li>
             );
