@@ -6,15 +6,17 @@ import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
 import PostMeta from "../components/postmeta.astro";
 
-// Filter blog entries with 'draft: false' & date before current date
-const publishedWorkEntries = await getCollection("work", ({ data }) => {
-  return !data.draft && data.publishDate < new Date();
+// Get all non-draft entries
+const workEntries = await getCollection("work", ({ data }) => {
+  return !data.draft;
 });
 
 // Sort content entries by publication date
-publishedWorkEntries.sort(function (a, b) {
+workEntries.sort(function (a, b) {
   return b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
 });
+
+const now = new Date();
 ---
 
 <Layout title="Work">
@@ -26,46 +28,52 @@ publishedWorkEntries.sort(function (a, b) {
     <main class="mt-16">
       <ul class="grid gap-16 max-w-4xl mx-auto">
         {
-          publishedWorkEntries.map((workPostEntry, index) => (
-            <li>
-              <a
-                href={
-                  workPostEntry.data.external
-                    ? workPostEntry.data.external
-                    : `/work/${workPostEntry.slug}`
-                }
-                target={workPostEntry.data.external ? "_blank" : undefined}
-                rel={
-                  workPostEntry.data.external
-                    ? "noopener noreferrer"
-                    : undefined
-                }
-              >
-                <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
-                  <Picture
-                    src={workPostEntry.data.image.src}
-                    alt={workPostEntry.data.image.alt}
-                    sizes="(max-width: 800px) 100vw, 800px"
-                    width={800}
-                    height={600}
-                    loading={index <= 2 ? "eager" : "lazy"}
-                    decoding={index <= 2 ? "sync" : "async"}
-                    class="w-full rounded-md object-cover object-center bg-white"
-                  />
-                  <div>
-                    <PostMeta
-                      category={workPostEntry.data.category}
-                      publishDate={workPostEntry.data.publishDate}
-                    />
+          workEntries.map((workPostEntry, index) => {
+            const isForthcoming = workPostEntry.data.publishDate > now;
 
-                    <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
-                      {workPostEntry.data.title}
-                    </h2>
-                  </div>
+            const content = (
+              <div class="grid md:grid-cols-2 gap-5 md:gap-10 items-center">
+                <Picture
+                  src={workPostEntry.data.image.src}
+                  alt={workPostEntry.data.image.alt}
+                  sizes="(max-width: 800px) 100vw, 800px"
+                  width={800}
+                  height={600}
+                  loading={index <= 2 ? "eager" : "lazy"}
+                  decoding={index <= 2 ? "sync" : "async"}
+                  class="w-full rounded-md object-cover object-center bg-white"
+                />
+                <div>
+                  <PostMeta
+                    category={workPostEntry.data.category}
+                    publishDate={workPostEntry.data.publishDate}
+                  />
+
+                  <h2 class="text-3xl font-semibold leading-snug tracking-tight mt-1 ">
+                    {workPostEntry.data.title}
+                  </h2>
                 </div>
-              </a>
-            </li>
-          ))
+              </div>
+            );
+
+            if (isForthcoming) {
+              return <li>{content}</li>;
+            }
+
+            const url = workPostEntry.data.external
+              ? workPostEntry.data.external
+              : `/work/${workPostEntry.slug}`;
+            const target = workPostEntry.data.external ? "_blank" : undefined;
+            const rel = workPostEntry.data.external ? "noopener noreferrer" : undefined;
+
+            return (
+              <li>
+                <a href={url} target={target} rel={rel}>
+                  {content}
+                </a>
+              </li>
+            );
+          })
         }
       </ul>
     </main>
