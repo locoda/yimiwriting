@@ -1,54 +1,25 @@
----
-import { Picture } from "astro:assets";
-// import heroImage from "/portrait.jpg";
-import Link from "./ui/link.astro";
----
+<section class="flex flex-col items-center justify-center text-center min-h-screen py-12">
+  <h1 class="font-serif font-bold text-6xl md:text-8xl leading-none tracking-tight">
+    <span class="text-hh15-fg">Yimi</span><br />
+    <span class="text-hh15-accent">Writing</span>
+  </h1>
 
-<main
-  class="grid gap-8 lg:grid-cols-2 items-center pb-4 md:pt-8 md:pb-16"
->
-  <div class="relative md:py-6 md:order-1 md:block">
-    <Picture
-      src="/portrait.png"
-      alt="Yimi's avatar"
-      width="480"
-      height="480"
-      class="rounded-full shadow-2xl ring-4 ring-hh15-accent/20"
-    />
-  </div>
-  <div class="text-center lg:text-left">
-    <h1 class="text-5xl lg:text-6xl font-sans font-bold">
-      <span
-        class="block bg-gradient-to-r from-hh15-accent to-hh15-accent3 bg-clip-text text-transparent"
-      >
-        Hi, I'm Yimi
-      </span>
-    </h1>
+  <p class="mt-6 text-lg md:text-xl text-hh15-muted max-w-md">
+    Developer & writer crafting thoughtful digital experiences.
+  </p>
 
-    <p class="text-lg mt-6 text-hh15-muted max-w-xl mx-auto lg:mx-0">
-      I explore tech, design, and the craft of writing—sharing insights and
-      stories along the way.
-    </p>
-
-    <div
-      class="mt-8 md:mt-12 flex flex-col sm:flex-row gap-3 font-sans justify-center lg:justify-start"
+  <nav class="mt-10 flex gap-8 text-lg">
+    <a
+      href="/work"
+      class="underline decoration-2 underline-offset-4 hover:text-hh15-accent"
     >
-      <Link
-        size="xl"
-        href="/work"
-        style="primary"
-        class="flex items-center justify-center"
-      >
-        My Work
-      </Link>
-      <Link
-        size="xl"
-        href="/about"
-        style="outline"
-        class="flex items-center justify-center"
-      >
-        About Me
-      </Link>
-    </div>
-  </div>
-</main>
+      Work
+    </a>
+    <a
+      href="/about"
+      class="underline decoration-2 underline-offset-4 hover:text-hh15-accent"
+    >
+      About
+    </a>
+  </nav>
+</section>
