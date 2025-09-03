@@ -24,7 +24,7 @@ const now = new Date();
       <!-- <Fragment slot="desc"> The pieces I've created. Forthcoming... </Fragment> -->
     </Sectionhead>
     <main class="mt-16">
-      <ul class="flex flex-col gap-8 max-w-6xl mx-auto">
+      <ul class="flex flex-col gap-8 max-w-3xl mx-auto">
         {
           workEntries.map((workPostEntry) => {
             const isForthcoming = workPostEntry.data.publishDate > now;
@@ -36,26 +36,30 @@ const now = new Date();
                 });
 
             const content = (
-              <div class="grid gap-2 md:grid-cols-[1fr_auto_auto_auto] md:gap-4">
-                <h2 class="text-xl font-semibold leading-snug tracking-tight">
+              <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
+                <h2 class="text-xl font-semibold leading-snug tracking-tight md:flex-1">
                   {workPostEntry.data.title}
                 </h2>
-                <span class="text-hh15-accent uppercase tracking-wider">
-                  {workPostEntry.data.category}
-                </span>
-                {isForthcoming ? (
-                  <span class="text-hh15-muted">{formattedDate}</span>
-                ) : (
-                  <time
-                    class="text-hh15-muted whitespace-nowrap"
-                    datetime={workPostEntry.data.publishDate.toISOString()}
-                  >
-                    {formattedDate}
-                  </time>
-                )}
-                <span class="text-hh15-muted">
-                  {workPostEntry.data.magazine}
-                </span>
+                <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-0">
+                  <span class="text-hh15-accent uppercase tracking-wider">
+                    {workPostEntry.data.category}
+                  </span>
+                  <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
+                  {isForthcoming ? (
+                    <span class="text-hh15-muted">{formattedDate}</span>
+                  ) : (
+                    <time
+                      class="text-hh15-muted whitespace-nowrap"
+                      datetime={workPostEntry.data.publishDate.toISOString()}
+                    >
+                      {formattedDate}
+                    </time>
+                  )}
+                  <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
+                  <span class="text-hh15-muted">
+                    {workPostEntry.data.magazine}
+                  </span>
+                </div>
               </div>
             );
 
