@@ -3,7 +3,6 @@ import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/container.astro";
 import Sectionhead from "../components/sectionhead.astro";
-import PostMeta from "../components/postmeta.astro";
 
 // Get all non-draft entries
 const workEntries = await getCollection("work", ({ data }) => {
@@ -27,18 +26,33 @@ const now = new Date();
     <main class="mt-16">
       <ul class="flex flex-col gap-8 max-w-6xl mx-auto">
         {
-          workEntries.map((workPostEntry, index) => {
+          workEntries.map((workPostEntry) => {
             const isForthcoming = workPostEntry.data.publishDate > now;
+            const formattedDate = isForthcoming
+              ? "Forthcoming"
+              : workPostEntry.data.publishDate.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                });
 
             const content = (
-              <div class="flex flex-col gap-2">
-                <PostMeta
-                  category={workPostEntry.data.category}
-                  publishDate={workPostEntry.data.publishDate}
-                />
-                <h2 class="text-xl font-semibold leading-snug tracking-tight mt-1">
+              <div class="grid gap-2 md:grid-cols-[1fr_auto_auto_auto] md:gap-4">
+                <h2 class="text-xl font-semibold leading-snug tracking-tight">
                   {workPostEntry.data.title}
                 </h2>
+                <span class="text-hh15-accent uppercase tracking-wider">
+                  {workPostEntry.data.category}
+                </span>
+                {isForthcoming ? (
+                  <span class="text-hh15-muted">{formattedDate}</span>
+                ) : (
+                  <time
+                    class="text-hh15-muted whitespace-nowrap"
+                    datetime={workPostEntry.data.publishDate.toISOString()}
+                  >
+                    {formattedDate}
+                  </time>
+                )}
                 <span class="text-hh15-muted">
                   {workPostEntry.data.magazine}
                 </span>

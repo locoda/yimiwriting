@@ -7,10 +7,6 @@ const workCollection = defineCollection({
     draft: z.boolean(),
     title: z.string(),
     magazine: z.string(),
-    image: z.object({
-      src: z.string(),
-      alt: z.string(),
-    }),
     publishDate: z.string().transform(str => new Date(str)),
     category: z.string(),
     external: z.string().optional()
