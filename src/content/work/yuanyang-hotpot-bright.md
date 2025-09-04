@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Yuanyang Hotpot"
-magazine: "Bright Flash Literary Review, September 2025"
+magazine: "Bright Flash Literary Review"
 publishDate: "2025-09-04"
 category: "Flash Fiction"
 external: "https://brightflash1000.com/2025/09/04/yuanyang-hotpot/"
