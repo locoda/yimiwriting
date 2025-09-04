@@ -37,7 +37,7 @@ const now = new Date();
 
             const content = (
               <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
-                <h2 class="text-xl font-semibold leading-snug tracking-tight md:flex-1">
+                <h2 class="text-xl font-semibold leading-snug tracking-tight md:flex-1 text-hh15-accent group-hover:underline">
                   {workPostEntry.data.title}
                 </h2>
                 <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-0">
@@ -77,7 +77,7 @@ const now = new Date();
 
             return (
               <li>
-                <a href={url} target={target} rel={rel}>
+                <a href={url} target={target} rel={rel} class="group block">
                   {content}
                 </a>
               </li>
