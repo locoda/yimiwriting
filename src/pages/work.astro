@@ -35,9 +35,11 @@ const now = new Date();
                   month: "long",
                 });
 
+            const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-1 underline-offset-4 group-hover:text-hh15-accent' : ''}`;
+
             const content = (
               <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
-                <h2 class="text-xl font-semibold leading-snug tracking-tight underline decoration-1 underline-offset-4 group-hover:text-hh15-accent">
+                <h2 class={titleClasses}>
                   {workPostEntry.data.title}
                 </h2>
                 <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-0">
