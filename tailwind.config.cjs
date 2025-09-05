@@ -6,7 +6,7 @@ module.exports = {
     extend: {
       colors: {
         hh15: {
-          bg: "#faeee7",
+          bg: "#fff7f2",
           fg: "#33272a",
           muted: "#594a4e",
           card: "#fffffe",
