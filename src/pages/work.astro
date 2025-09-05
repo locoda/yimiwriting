@@ -35,7 +35,7 @@ const genres = ["fiction", "non-fiction", "poetry"];
               : genre.charAt(0).toUpperCase() + genre.slice(1);
           return (
             <section>
-              <h2 class="text-2xl font-semibold tracking-tight mb-8">
+              <h2 class="font-bold font-sans text-3xl text-hh15-fg mb-8">
                 {genreTitle}
               </h2>
               <ul class="flex flex-col gap-8 max-w-3xl mx-auto">
@@ -53,7 +53,7 @@ const genres = ["fiction", "non-fiction", "poetry"];
                           }
                         );
 
-                    const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-1 underline-offset-4 group-hover:text-hh15-accent' : ''}`;
+                    const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-dotted decoration-2 underline-offset-4 group-hover:text-hh15-accent' : ''}`;
 
                     const content = (
                       <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
