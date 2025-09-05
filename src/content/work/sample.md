@@ -4,6 +4,7 @@ title: "The TITLE"
 magazine: "THE MAGAZINE, THE ISSUE"
 publishDate: "2022-11-08 11:39"
 category: "Poem"
+genre: "poetry"
 # external: "https://citronreview.com/2025/06/29/how-i-knew-him/"
 ---
 

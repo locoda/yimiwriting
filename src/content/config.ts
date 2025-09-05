@@ -9,6 +9,7 @@ const workCollection = defineCollection({
     magazine: z.string(),
     publishDate: z.string().transform(str => new Date(str)),
     category: z.string(),
+    genre: z.enum(['fiction', 'non-fiction', 'poetry']),
     external: z.string().optional()
   }),
 });
