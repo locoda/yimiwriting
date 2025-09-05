@@ -15,6 +15,7 @@ workEntries.sort(function (a, b) {
 });
 
 const now = new Date();
+const genres = ["fiction", "non-fiction", "poetry"];
 ---
 
 <Layout title="Work">
@@ -23,70 +24,98 @@ const now = new Date();
       <Fragment slot="title">Work</Fragment>
       <!-- <Fragment slot="desc"> The pieces I've created. Forthcoming... </Fragment> -->
     </Sectionhead>
-    <main class="mt-16">
-      <ul class="flex flex-col gap-8 max-w-3xl mx-auto">
-        {
-          workEntries.map((workPostEntry) => {
-            const isForthcoming = workPostEntry.data.publishDate > now;
-            const formattedDate = isForthcoming
-              ? "Forthcoming"
-              : workPostEntry.data.publishDate.toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                });
+    <main class="mt-16 flex flex-col gap-16">
+      {
+        genres.map((genre) => {
+          const posts = workEntries.filter((entry) => entry.data.genre === genre);
+          if (posts.length === 0) return null;
+          const genreTitle =
+            genre === "non-fiction"
+              ? "Non-fiction"
+              : genre.charAt(0).toUpperCase() + genre.slice(1);
+          return (
+            <section>
+              <h2 class="text-2xl font-semibold tracking-tight mb-8">
+                {genreTitle}
+              </h2>
+              <ul class="flex flex-col gap-8 max-w-3xl mx-auto">
+                {
+                  posts.map((workPostEntry) => {
+                    const isForthcoming =
+                      workPostEntry.data.publishDate > now;
+                    const formattedDate = isForthcoming
+                      ? "Forthcoming"
+                      : workPostEntry.data.publishDate.toLocaleDateString(
+                          "en-US",
+                          {
+                            year: "numeric",
+                            month: "long",
+                          }
+                        );
 
-            const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-1 underline-offset-4 group-hover:text-hh15-accent' : ''}`;
+                    const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-1 underline-offset-4 group-hover:text-hh15-accent' : ''}`;
 
-            const content = (
-              <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
-                <h2 class={titleClasses}>
-                  {workPostEntry.data.title}
-                </h2>
-                <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-0">
-                  <span class="text-hh15-accent uppercase tracking-wider">
-                    {workPostEntry.data.category}
-                  </span>
-                  <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
-                  {isForthcoming ? (
-                    <span class="text-hh15-muted">{formattedDate}</span>
-                  ) : (
-                    <time
-                      class="text-hh15-muted whitespace-nowrap"
-                      datetime={workPostEntry.data.publishDate.toISOString()}
-                    >
-                      {formattedDate}
-                    </time>
-                  )}
-                  <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
-                  <span class="text-hh15-muted">
-                    {workPostEntry.data.magazine}
-                  </span>
-                </div>
-              </div>
-            );
+                    const content = (
+                      <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
+                        <h2 class={titleClasses}>
+                          {workPostEntry.data.title}
+                        </h2>
+                        <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-0">
+                          <span class="text-hh15-accent uppercase tracking-wider">
+                            {workPostEntry.data.category}
+                          </span>
+                          <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
+                          {isForthcoming ? (
+                            <span class="text-hh15-muted">{formattedDate}</span>
+                          ) : (
+                            <time
+                              class="text-hh15-muted whitespace-nowrap"
+                              datetime={workPostEntry.data.publishDate.toISOString()}
+                            >
+                              {formattedDate}
+                            </time>
+                          )}
+                          <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
+                          <span class="text-hh15-muted">
+                            {workPostEntry.data.magazine}
+                          </span>
+                        </div>
+                      </div>
+                    );
 
-            if (isForthcoming) {
-              return <li>{content}</li>;
-            }
+                    if (isForthcoming) {
+                      return <li>{content}</li>;
+                    }
 
-            const url = workPostEntry.data.external
-              ? workPostEntry.data.external
-              : `/work/${workPostEntry.slug}`;
-            const target = workPostEntry.data.external ? "_blank" : undefined;
-            const rel = workPostEntry.data.external
-              ? "noopener noreferrer"
-              : undefined;
+                    const url = workPostEntry.data.external
+                      ? workPostEntry.data.external
+                      : `/work/${workPostEntry.slug}`;
+                    const target = workPostEntry.data.external
+                      ? "_blank"
+                      : undefined;
+                    const rel = workPostEntry.data.external
+                      ? "noopener noreferrer"
+                      : undefined;
 
-            return (
-              <li>
-                <a href={url} target={target} rel={rel} class="group block">
-                  {content}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
+                    return (
+                      <li>
+                        <a
+                          href={url}
+                          target={target}
+                          rel={rel}
+                          class="group block"
+                        >
+                          {content}
+                        </a>
+                      </li>
+                    );
+                  })
+                }
+              </ul>
+            </section>
+          );
+        })
+      }
     </main>
   </Container>
 </Layout>
