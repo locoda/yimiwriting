@@ -54,7 +54,7 @@ const genres = ["fiction", "non-fiction", "poetry"];
                           }
                         );
 
-                    const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' group-hover:underline group-hover:decoration-1 group-hover:underline-offset-8' : ''}`;
+                    const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-1 underline-offset-8 md:no-underline md:group-hover:underline md:group-hover:decoration-1 md:group-hover:underline-offset-8' : ''}`;
 
                     const content = (
                       <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
