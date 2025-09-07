@@ -19,7 +19,7 @@ module.exports = {
       fontFamily: {
         serif: ['"Libertinus Serif"', 'Times', ...defaultTheme.fontFamily.serif],
         sans: ['"Libertinus Sans"', 'Noto Sans SC', 'system-ui', ...defaultTheme.fontFamily.sans],
-        brand: ['"Caveat"', ...defaultTheme.fontFamily.serif],
+        brand: ['"Permanent Marker"', ...defaultTheme.fontFamily.serif],
       }
     },
   },
