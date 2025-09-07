@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Buried Again"
-magazine: "Prosetrics, Whelve Issue, September 2025"
+magazine: "Prosetrics, Whelve Issue"
 publishDate: "2025-9-30"
 category: "Short Story"
 genre: "fiction"
