@@ -5,7 +5,7 @@ magazine: "ELLIE Magazine"
 publishDate: "2025-09-20"
 category: "Poem"
 genre: "poetry"
-external: https://elliemagazine.cargo.site/yimi"
+external: "https://elliemagazine.cargo.site/yimi"
 ---
 
 
