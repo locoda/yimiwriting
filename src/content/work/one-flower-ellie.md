@@ -1,11 +1,22 @@
 ---
 draft: false
 title: "One Flower"
-magazine: "ELLIE Magazine, 2025"
-publishDate: "2025-12-31 11:59"
+magazine: "ELLIE Magazine"
+publishDate: "2025-09-20"
 category: "Poem"
 genre: "poetry"
-# external: "https://citronreview.com/2025/06/29/how-i-knew-him/"
+external: https://elliemagazine.cargo.site/yimi"
 ---
 
-Forthcoming.
+
+In spring,
+   cut a corner
+   off my heart,
+   bury it
+   in the soil.
+
+Let it grow
+   into a few flowers.
+
+One of them
+   will look like you.
