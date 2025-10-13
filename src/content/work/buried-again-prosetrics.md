@@ -8,4 +8,4 @@ genre: "fiction"
 external: "https://prosetricsthemagazine.com/"
 ---
 
-Buried Again. First Published in Prosetrics.
+Buried Again. First Published in Prosetrics. It will be available online in the near future.
