@@ -1,11 +1,11 @@
 ---
 draft: false
 title: "The Fluid"
-magazine: "The Orange Rose"
-publishDate: "2025-11-20 11:59"
+magazine: "The Orange Rose, Issue 3"
+publishDate: "2025-11-07"
 category: "Poem"
 genre: "poetry"
-# external: "https://citronreview.com/2025/06/29/how-i-knew-him/"
+external: "https://theorangeroselitmag.com/2025/11/07/the-fluid-by-yimi-lu/"
 ---
 
-Forthcoming.
+The Fluid first published by The Orange Rose, Issue 3.
