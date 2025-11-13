@@ -20,7 +20,7 @@
     "@iconify-json/uil": "^1.2.3",
     "@playform/compress": "^0.2.0",
     "@tailwindcss/typography": "^0.5.19",
-    "astro": "^5.14.3",
+    "astro": "^5.15.6",
     "astro-icon": "^1.1.5",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^0.8.4",
