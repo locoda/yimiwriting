@@ -2,10 +2,10 @@
 draft: false
 title: "Neck Pain"
 magazine: "MoonPark Review, Issue 34"
-publishDate: "2025-12-30"
+publishDate: "2025-12-21"
 category: "Flash Fiction"
 genre: "fiction"
-# external: "https://prosetricsthemagazine.com/"
+external: "https://moonparkreview.com/issue-34-winter-2025-2026/neck-pain/"
 ---
 
-Neck Pain. First Published in MoonPark Review.
+Neck Pain. First Published in MoonPark Review, Issue 34.
