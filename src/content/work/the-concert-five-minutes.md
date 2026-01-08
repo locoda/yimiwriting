@@ -2,10 +2,10 @@
 draft: false
 title: "The Concert"
 magazine: "Five Minutes Lit"
-publishDate: "2026-12-30"
+publishDate: "2026-01-08"
 category: "Micro Memoirs"
 genre: "non-fiction"
-# external: "https://theorangeroselitmag.com/2025/11/07/the-fluid-by-yimi-lu/"
+external: "https://www.fiveminutelit.com/five-minutes/the-concert"
 ---
 
 The Concert first published by Five Minutes Lit.
