@@ -12,24 +12,24 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.8",
-    "@astrojs/sitemap": "^3.5.1",
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/sitemap": "^3.7.0",
     "@astrojs/tailwind": "^6.0.2",
     "@iconify-json/bx": "^1.2.2",
-    "@iconify-json/simple-icons": "^1.2.50",
+    "@iconify-json/simple-icons": "^1.2.67",
     "@iconify-json/uil": "^1.2.3",
-    "@playform/compress": "^0.2.0",
+    "@playform/compress": "^0.2.1",
     "@tailwindcss/typography": "^0.5.19",
-    "astro": "^5.15.9",
+    "astro": "^5.16.11",
     "astro-icon": "^1.1.5",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
-    "rollup": "4.52.5",
-    "sharp": "^0.34.4",
+    "rollup": "4.55.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^3.4.17"
   },
   "optionalDependencies": {
-    "@esbuild/darwin-x64": "^0.25.11",
-    "@rollup/rollup-darwin-x64": "^4.50.1"
+    "@esbuild/darwin-x64": "^0.27.2",
+    "@rollup/rollup-darwin-x64": "^4.55.3"
   }
 }
