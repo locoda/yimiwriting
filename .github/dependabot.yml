@@ -10,11 +10,11 @@ updates:
     schedule:
       interval: "weekly"
     groups:
-      major:
-        patterns:
-          - "*"
-        update-types:
-          - "major"
+      # major:
+      #   patterns:
+      #     - "*"
+      #   update-types:
+      #     - "major"
       minor-and-patch:
         patterns:
           - "*"
