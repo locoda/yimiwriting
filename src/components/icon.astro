@@ -1,0 +1,26 @@
+---
+const { name, class: className = "" } = Astro.props;
+
+const iconMap = {
+  "bx:bxs-briefcase": "💼",
+  "bx:bxs-window-alt": "🪟",
+  "bx:bxs-data": "📊",
+  "bx:bxs-bot": "🤖",
+  "bx:bxs-file-find": "🔍",
+  "bx:bxs-user": "👤",
+  "simple-icons:react": "⚛️",
+  "simple-icons:svelte": "🧡",
+  "simple-icons:astro": "🚀",
+  "simple-icons:tailwindcss": "🌬️",
+  "simple-icons:alpinedotjs": "🏔️",
+  "simple-icons:vercel": "▲",
+  "simple-icons:twitter": "🐦",
+  "simple-icons:instagram": "📸",
+  "simple-icons:threads": "🧵",
+  "simple-icons:bluesky": "☁️",
+};
+
+const icon = iconMap[name];
+---
+
+<span class={className} aria-hidden="true">{icon ?? "❓"}</span>
