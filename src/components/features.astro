@@ -1,43 +1,40 @@
 ---
-// @ts-ignore
-import { Icon } from "astro-icon/components";
-
 const features = [
   {
     title: "Bring Your Own Framework",
     description:
       "Build your site using React, Svelte, Vue, Preact, web components, or just plain ol' HTML + JavaScript.",
-    icon: "bx:bxs-briefcase",
+    iconClass: "fa-briefcase",
   },
   {
     title: "100% Static HTML, No JS",
     description:
       "Astro renders your entire page to static HTML, removing all JavaScript from your final build by default.",
-    icon: "bx:bxs-window-alt",
+    iconClass: "fa-window-maximize",
   },
   {
     title: "On-Demand Components",
     description:
       "Need some JS? Astro can automatically hydrate interactive components when they become visible on the page.  ",
-    icon: "bx:bxs-data",
+    iconClass: "fa-database",
   },
   {
     title: "Broad Integration",
     description:
       "Astro supports TypeScript, Scoped CSS, CSS Modules, Sass, Tailwind, Markdown, MDX, and any other npm packages.",
-    icon: "bx:bxs-bot",
+    iconClass: "fa-robot",
   },
   {
     title: "SEO Enabled",
     description:
       "Automatic sitemaps, RSS feeds, pagination and collections take the pain out of SEO and syndication. It just works!",
-    icon: "bx:bxs-file-find",
+    iconClass: "fa-magnifying-glass",
   },
   {
     title: "Community",
     description:
       "Astro is an open source project powered by hundreds of contributors making thousands of individual contributions.",
-    icon: "bx:bxs-user",
+    iconClass: "fa-user",
   },
 ];
 ---
@@ -57,7 +54,7 @@ const features = [
     features.map((item) => (
       <div class="flex gap-4 items-start">
         <div class="mt-1 bg-black rounded-full  p-2 w-8 h-8 shrink-0">
-          <Icon class="text-white" name={item.icon} />
+          <i class={`fa-solid ${item.iconClass} text-white`} aria-hidden="true"></i>
         </div>
         <div>
           <h3 class="font-semibold text-lg">{item.title}</h3>{" "}

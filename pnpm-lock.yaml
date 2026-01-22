@@ -17,15 +17,6 @@ importers:
       '@astrojs/tailwind':
         specifier: ^6.0.2
         version: 6.0.2(astro@5.16.11(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(rollup@4.55.3)(terser@5.44.1)(typescript@5.9.2)(yaml@2.8.2))(tailwindcss@3.4.19(yaml@2.8.2))
-      '@iconify-json/bx':
-        specifier: ^1.2.2
-        version: 1.2.2
-      '@iconify-json/simple-icons':
-        specifier: ^1.2.67
-        version: 1.2.67
-      '@iconify-json/uil':
-        specifier: ^1.2.3
-        version: 1.2.3
       '@playform/compress':
         specifier: ^0.2.1
         version: 0.2.1(@types/node@25.0.9)(jiti@1.21.7)(rollup@4.55.3)(typescript@5.9.2)(yaml@2.8.2)
@@ -35,9 +26,6 @@ importers:
       astro:
         specifier: ^5.16.11
         version: 5.16.11(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(rollup@4.55.3)(terser@5.44.1)(typescript@5.9.2)(yaml@2.8.2)
-      astro-icon:
-        specifier: ^1.1.5
-        version: 1.1.5
       astro-navbar:
         specifier: ^2.4.0
         version: 2.4.0
@@ -332,24 +320,6 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
-
-  '@iconify-json/bx@1.2.2':
-    resolution: {integrity: sha512-hZVx6LMEkYckScdRdUuQWcmv8Lm2au6Cnf799TLoR6YgiAfFvaJ4M5ElwcnExvCu8ntsS7jW89r0W5LwBAfZXQ==}
-
-  '@iconify-json/simple-icons@1.2.67':
-    resolution: {integrity: sha512-RGJRwlxyup54L1UDAjCshy3ckX5zcvYIU74YLSnUgHGvqh6B4mvksbGNHAIEp7dZQ6cM13RZVT5KC07CmnFNew==}
-
-  '@iconify-json/uil@1.2.3':
-    resolution: {integrity: sha512-if91+UBhDQc6glPsIaXecGIcXnbQZfEO4Gdv89TV2xQ+V5e9GWbY5rNl2fsKZd8COsRQ5lRQAKimVQVL0CZZVg==}
-
-  '@iconify/tools@4.1.2':
-    resolution: {integrity: sha512-q6NzLQYEN9zkDfcyBqD3vItHcZw97w/s++3H3TBxUORr57EfHxj6tOW6fyufDjMq+Vl56WXWaPx1csBPYlI5CA==}
-
-  '@iconify/types@2.0.0':
-    resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
-
-  '@iconify/utils@2.3.0':
-    resolution: {integrity: sha512-GmQ78prtwYW6EtzXRU1rY+KwOKfz32PD7iJh6Iyqw68GiKuoZ2A6pRtzWONz5VQJbp50mEjXh/7NkumtrAgRKA==}
 
   '@img/colour@1.0.0':
     resolution: {integrity: sha512-A5P/LfWGFSl6nsckYtjw9da+19jB8hkJ6ACTGcDfEJ0aE+l2n2El7dsVM7UVHZQ9s2lmYMWlrS21YLy2IR1LUw==}
@@ -841,9 +811,6 @@ packages:
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
-
-  astro-icon@1.1.5:
-    resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
   astro-navbar@2.4.0:
     resolution: {integrity: sha512-UhQnU8lz3a0NKL5gTBXFwYg1CVzP/DNlw1z6qW7f9Q1j33oMHdjwX/TmC2/xkJTKeq4a2RxgaqeJ+6CxCxRELg==}
@@ -3014,47 +2981,6 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@iconify-json/bx@1.2.2':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify-json/simple-icons@1.2.67':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify-json/uil@1.2.3':
-    dependencies:
-      '@iconify/types': 2.0.0
-
-  '@iconify/tools@4.1.2':
-    dependencies:
-      '@iconify/types': 2.0.0
-      '@iconify/utils': 2.3.0
-      '@types/tar': 6.1.13
-      axios: 1.12.1
-      cheerio: 1.0.0
-      domhandler: 5.0.3
-      extract-zip: 2.0.1
-      local-pkg: 0.5.1
-      pathe: 1.1.2
-      svgo: 3.3.2
-      tar: 6.2.1
-    transitivePeerDependencies:
-      - debug
-      - supports-color
-
-  '@iconify/types@2.0.0': {}
-
-  '@iconify/utils@2.3.0':
-    dependencies:
-      '@antfu/install-pkg': 1.1.0
-      '@antfu/utils': 8.1.1
-      '@iconify/types': 2.0.0
-      debug: 4.4.3
-      globals: 15.15.0
-      kolorist: 1.8.0
-      local-pkg: 1.1.1
-      mlly: 1.7.4
     transitivePeerDependencies:
       - supports-color
 
@@ -3556,15 +3482,6 @@ snapshots:
   array-iterate@2.0.1: {}
 
   astring@1.9.0: {}
-
-  astro-icon@1.1.5:
-    dependencies:
-      '@iconify/tools': 4.1.2
-      '@iconify/types': 2.0.0
-      '@iconify/utils': 2.3.0
-    transitivePeerDependencies:
-      - debug
-      - supports-color
 
   astro-navbar@2.4.0: {}
 
