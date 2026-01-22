@@ -35,9 +35,6 @@ importers:
       astro:
         specifier: ^5.16.11
         version: 5.16.11(@types/node@25.0.9)(jiti@1.21.7)(lightningcss@1.30.2)(rollup@4.55.3)(terser@5.44.1)(typescript@5.9.2)(yaml@2.8.2)
-      astro-icon:
-        specifier: ^1.1.5
-        version: 1.1.5
       astro-navbar:
         specifier: ^2.4.0
         version: 2.4.0
@@ -841,9 +838,6 @@ packages:
   astring@1.9.0:
     resolution: {integrity: sha512-LElXdjswlqjWrPpJFg1Fx4wpkOCxj1TDHlSV4PlaRxHGWko024xICaa97ZkMfs6DRKlCguiAI+rbXv5GWwXIkg==}
     hasBin: true
-
-  astro-icon@1.1.5:
-    resolution: {integrity: sha512-CJYS5nWOw9jz4RpGWmzNQY7D0y2ZZacH7atL2K9DeJXJVaz7/5WrxeyIxO8KASk1jCM96Q4LjRx/F3R+InjJrw==}
 
   astro-navbar@2.4.0:
     resolution: {integrity: sha512-UhQnU8lz3a0NKL5gTBXFwYg1CVzP/DNlw1z6qW7f9Q1j33oMHdjwX/TmC2/xkJTKeq4a2RxgaqeJ+6CxCxRELg==}
@@ -3556,15 +3550,6 @@ snapshots:
   array-iterate@2.0.1: {}
 
   astring@1.9.0: {}
-
-  astro-icon@1.1.5:
-    dependencies:
-      '@iconify/tools': 4.1.2
-      '@iconify/types': 2.0.0
-      '@iconify/utils': 2.3.0
-    transitivePeerDependencies:
-      - debug
-      - supports-color
 
   astro-navbar@2.4.0: {}
 
