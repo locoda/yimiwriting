@@ -1,18 +1,32 @@
 ---
-// @ts-ignore
-import { Icon } from "astro-icon/components";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import {
+  faAlpinejs,
+  faAstro,
+  faReact,
+  faSvelte,
+  faTailwind,
+  faVercel,
+} from "@fortawesome/free-brands-svg-icons";
+
+const reactIcon = icon(faReact, { classes: ["size-8", "md:size-12"] }).html.join("");
+const svelteIcon = icon(faSvelte, { classes: ["size-8", "md:size-12"] }).html.join("");
+const astroIcon = icon(faAstro, { classes: ["size-8", "md:size-12"] }).html.join("");
+const tailwindIcon = icon(faTailwind, { classes: ["size-8", "md:size-16"] }).html.join("");
+const alpineIcon = icon(faAlpinejs, { classes: ["size-8", "md:size-16"] }).html.join("");
+const vercelIcon = icon(faVercel, { classes: ["size-8", "md:size-12"] }).html.join("");
 ---
 
 <div class="mt-24">
   <h2 class="text-center text-hh15-muted">Works with your technologies</h2>
   <div class="flex gap-8 md:gap-20 items-center justify-center mt-10 flex-wrap">
 
-    <Icon class="size-8 md:size-12" name="simple-icons:react" />
-    <Icon class="size-8 md:size-12" name="simple-icons:svelte" />
-    <Icon class="size-8 md:size-12" name="simple-icons:astro" />
-    <Icon class="size-8 md:size-16" name="simple-icons:tailwindcss" />
-    <Icon class="size-8 md:size-16" name="simple-icons:alpinedotjs" />
-    <Icon class="size-8 md:size-12" name="simple-icons:vercel" />
+    <span aria-hidden="true" set:html={reactIcon} />
+    <span aria-hidden="true" set:html={svelteIcon} />
+    <span aria-hidden="true" set:html={astroIcon} />
+    <span aria-hidden="true" set:html={tailwindIcon} />
+    <span aria-hidden="true" set:html={alpineIcon} />
+    <span aria-hidden="true" set:html={vercelIcon} />
 
   </div>
 </div>

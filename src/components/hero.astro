@@ -1,7 +1,17 @@
 ---
-// @ts-ignore
-import { Icon } from "astro-icon/components";
+import { icon } from "@fortawesome/fontawesome-svg-core";
+import {
+  faBluesky,
+  faInstagram,
+  faThreads,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import Link from "./ui/link.astro";
+
+const twitterIcon = icon(faTwitter, { classes: ["size-6"] }).html.join("");
+const instagramIcon = icon(faInstagram, { classes: ["size-6"] }).html.join("");
+const threadsIcon = icon(faThreads, { classes: ["size-6"] }).html.join("");
+const blueskyIcon = icon(faBluesky, { classes: ["size-6"] }).html.join("");
 ---
 
   <section
@@ -26,7 +36,7 @@ import Link from "./ui/link.astro";
       aria-label="Twitter"
       class="hover:text-hh15-fg"
     >
-      <Icon class="size-6" name="simple-icons:twitter" />
+      <span aria-hidden="true" set:html={twitterIcon} />
     </a>
     <a
       href="https://instagram.com/yimiwriting"
@@ -35,7 +45,7 @@ import Link from "./ui/link.astro";
       aria-label="Instagram"
       class="hover:text-hh15-fg"
     >
-      <Icon class="size-6" name="simple-icons:instagram" />
+      <span aria-hidden="true" set:html={instagramIcon} />
     </a>
     <a
       href="https://www.threads.net/@yimiwriting"
@@ -44,7 +54,7 @@ import Link from "./ui/link.astro";
       aria-label="Threads"
       class="hover:text-hh15-fg"
     >
-      <Icon class="size-6" name="simple-icons:threads" />
+      <span aria-hidden="true" set:html={threadsIcon} />
     </a>
     <a
       href="https://bsky.app/profile/yimiwriting.bsky.social"
@@ -53,7 +63,7 @@ import Link from "./ui/link.astro";
       aria-label="Bluesky"
       class="hover:text-hh15-fg"
     >
-      <Icon class="size-6" name="simple-icons:bluesky" />
+      <span aria-hidden="true" set:html={blueskyIcon} />
     </a>
   </div>
 
