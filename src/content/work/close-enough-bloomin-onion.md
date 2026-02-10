@@ -1,7 +1,7 @@
 ---
 draft: false
 title: "Close Enough"
-magazine: "MoonPark Review, Issue 34"
+magazine: "The Bloomin' Onion"
 publishDate: "2026-04-18"
 category: "Flash Fiction"
 genre: "fiction"
