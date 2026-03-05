@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --color-hh15-bg: #fff7f2;
+  --color-hh15-fg: #33272a;
+  --color-hh15-muted: #594a4e;
+  --color-hh15-card: #fffffe;
+  --color-hh15-accent: #e65073;
+  --color-hh15-accent2: #f4a7b9;
+  --color-hh15-accent3: #9cdba8;
+  --color-hh15-border: #e8d8cf;
+
+  --font-serif: "Libertinus Serif", Times, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: "Libertinus Sans", "Noto Sans SC", system-ui, sans-serif;
+  --font-brand: "Emblema One", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
