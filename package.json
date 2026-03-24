@@ -13,22 +13,22 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/sitemap": "^3.7.1",
     "@iconify-json/bx": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.73",
+    "@iconify-json/simple-icons": "^1.2.75",
     "@iconify-json/uil": "^1.2.3",
-    "@playform/compress": "^0.2.1",
+    "@playform/compress": "^0.2.2",
     "@tailwindcss/typography": "^0.5.19",
-    "@tailwindcss/vite": "^4.2.1",
+    "@tailwindcss/vite": "^4.2.2",
     "astro": "^5.18.0",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
-    "rollup": "4.59.0",
+    "rollup": "4.60.0",
     "sharp": "^0.34.5",
-    "tailwindcss": "^4.2.1"
+    "tailwindcss": "^4.2.2"
   },
   "optionalDependencies": {
-    "@esbuild/darwin-x64": "^0.27.3",
-    "@rollup/rollup-darwin-x64": "^4.59.0"
+    "@esbuild/darwin-x64": "^0.27.4",
+    "@rollup/rollup-darwin-x64": "^4.60.0"
   }
 }
