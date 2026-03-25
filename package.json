@@ -20,7 +20,7 @@
     "@playform/compress": "^0.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^5.18.0",
+    "astro": "^5.18.1",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
     "rollup": "4.60.0",
