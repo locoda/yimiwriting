@@ -13,9 +13,9 @@
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/sitemap": "^3.7.2",
     "@iconify-json/bx": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.75",
+    "@iconify-json/simple-icons": "^1.2.76",
     "@iconify-json/uil": "^1.2.3",
     "@playform/compress": "^0.2.2",
     "@tailwindcss/typography": "^0.5.19",
@@ -23,12 +23,12 @@
     "astro": "^6.1.2",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
-    "rollup": "4.60.0",
+    "rollup": "4.60.1",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2"
   },
   "optionalDependencies": {
     "@esbuild/darwin-x64": "^0.27.4",
-    "@rollup/rollup-darwin-x64": "^4.60.0"
+    "@rollup/rollup-darwin-x64": "^4.60.1"
   }
 }
