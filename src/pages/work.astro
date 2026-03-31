@@ -90,7 +90,7 @@ const genres = ["fiction", "non-fiction", "poetry"];
 
                     const url = workPostEntry.data.external
                       ? workPostEntry.data.external
-                      : `/work/${workPostEntry.slug}`;
+                      : `/work/${workPostEntry.id}`;
                     const target = workPostEntry.data.external
                       ? "_blank"
                       : undefined;
