@@ -12,7 +12,7 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/mdx": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
     "@iconify-json/bx": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.76",
@@ -20,7 +20,7 @@
     "@playform/compress": "^0.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^5.18.1",
+    "astro": "^6.1.2",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
     "rollup": "4.60.1",
