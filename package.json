@@ -30,5 +30,11 @@
   "optionalDependencies": {
     "@esbuild/darwin-x64": "^0.27.4",
     "@rollup/rollup-darwin-x64": "^4.60.1"
+  },
+  "pnpm": {
+    "overrides": {
+      "lodash": "4.17.23",
+      "yaml": "2.8.2"
+    }
   }
 }
