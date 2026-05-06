@@ -20,16 +20,16 @@
     "@playform/compress": "^0.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.4",
-    "astro": "^6.1.9",
+    "astro": "^6.2.2",
     "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
-    "rollup": "4.60.2",
+    "rollup": "4.60.3",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.4"
   },
   "optionalDependencies": {
     "@esbuild/darwin-x64": "^0.28.0",
-    "@rollup/rollup-darwin-x64": "^4.60.2"
+    "@rollup/rollup-darwin-x64": "^4.60.3"
   },
   "pnpm": {
     "overrides": {
