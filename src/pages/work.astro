@@ -22,12 +22,14 @@ const genres = ["fiction", "non-fiction", "poetry"];
   <Container>
     <Sectionhead>
       <Fragment slot="title">Work</Fragment>
-      <!-- <Fragment slot="desc"> The pieces I've created. Forthcoming... </Fragment> -->
     </Sectionhead>
-    <main class="mt-16 flex flex-col gap-16">
+
+    <main class="mt-14 space-y-16">
       {
         genres.map((genre) => {
-          const posts = workEntries.filter((entry) => entry.data.genre === genre);
+          const posts = workEntries.filter(
+            (entry) => entry.data.genre === genre
+          );
           if (posts.length === 0) return null;
           const genreTitle =
             genre === "non-fiction"
@@ -36,82 +38,90 @@ const genres = ["fiction", "non-fiction", "poetry"];
           return (
             <section>
               <div class="max-w-3xl mx-auto">
-                <h2 class="font-bold font-sans text-3xl text-hh15-fg mb-8">
+                <h2 class="font-serif font-semibold text-xs uppercase tracking-[0.15em] text-muted mb-8">
                   {genreTitle}
                 </h2>
-                <ul class="flex flex-col gap-8">
+                <ul class="space-y-6">
                   {
                     posts.map((workPostEntry) => {
-                    const isForthcoming =
-                      workPostEntry.data.publishDate > now;
-                    const formattedDate = isForthcoming
-                      ? "Forthcoming"
-                      : workPostEntry.data.publishDate.toLocaleDateString(
-                          "en-US",
-                          {
-                            year: "numeric",
-                            month: "long",
-                          }
-                        );
+                      const isForthcoming =
+                        workPostEntry.data.publishDate > now;
+                      const formattedDate = isForthcoming
+                        ? "Forthcoming"
+                        : workPostEntry.data.publishDate.toLocaleDateString(
+                            "en-US",
+                            {
+                              year: "numeric",
+                              month: "long",
+                            }
+                          );
 
-                    const titleClasses = `text-xl font-semibold leading-snug tracking-tight${!isForthcoming ? ' underline decoration-1 underline-offset-8 md:no-underline md:group-hover:underline md:group-hover:decoration-1 md:group-hover:underline-offset-8' : ''}`;
-
-                    const content = (
-                      <div class="flex flex-col md:flex-row md:gap-4 md:items-baseline">
-                        <h2 class={titleClasses}>
-                          {workPostEntry.data.title}
-                        </h2>
-                        <div class="flex flex-col gap-1 md:flex-row md:items-center md:gap-0">
-                          <span class="text-hh15-accent uppercase tracking-wider">
-                            {workPostEntry.data.category}
-                          </span>
-                          <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
-                          {isForthcoming ? (
-                            <span class="text-hh15-muted">{formattedDate}</span>
-                          ) : (
-                            <time
-                              class="text-hh15-muted whitespace-nowrap"
-                              datetime={workPostEntry.data.publishDate.toISOString()}
+                      const content = (
+                        <div class="group flex items-start justify-between gap-3">
+                          <div class="min-w-0">
+                            <h3
+                              class:list={[
+                                "font-serif font-medium text-lg leading-snug tracking-tight",
+                                isForthcoming
+                                  ? "text-muted"
+                                  : "text-fg group-hover:text-accent transition-colors",
+                              ]}
                             >
-                              {formattedDate}
-                            </time>
-                          )}
-                          <span class="hidden md:inline mx-2 text-hh15-muted">·</span>
-                          <span class="text-hh15-muted">
-                            {workPostEntry.data.magazine}
-                          </span>
+                              {workPostEntry.data.title}
+                            </h3>
+                            <div class="flex flex-wrap items-baseline gap-x-2 mt-1.5 text-sm text-muted">
+                              <span class="uppercase tracking-wider text-accent/80 text-xs font-medium">
+                                {workPostEntry.data.category}
+                              </span>
+                              <span aria-hidden="true">&middot;</span>
+                              <span>{formattedDate}</span>
+                              <span aria-hidden="true">&middot;</span>
+                              <span>{workPostEntry.data.magazine}</span>
+                            </div>
+                          </div>
+                          <!-- 永远可见的箭头，移动端也能认出是链接 -->
+                          <svg
+                            class="shrink-0 mt-1.5 text-border group-hover:text-accent transition-colors"
+                            width="16" height="16" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor"
+                            stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
+                          >
+                            <line x1="5" y1="12" x2="19" y2="12"/>
+                            <polyline points="12 5 19 12 12 19"/>
+                          </svg>
                         </div>
-                      </div>
-                    );
+                      );
 
-                    if (isForthcoming) {
-                      return <li>{content}</li>;
-                    }
+                      if (isForthcoming) {
+                        return (
+                          <li class="opacity-60">{content}</li>
+                        );
+                      }
 
-                    const url = workPostEntry.data.external
-                      ? workPostEntry.data.external
-                      : `/work/${workPostEntry.id}`;
-                    const target = workPostEntry.data.external
-                      ? "_blank"
-                      : undefined;
-                    const rel = workPostEntry.data.external
-                      ? "noopener noreferrer"
-                      : undefined;
+                      const url = workPostEntry.data.external
+                        ? workPostEntry.data.external
+                        : `/work/${workPostEntry.id}`;
+                      const target = workPostEntry.data.external
+                        ? "_blank"
+                        : undefined;
+                      const rel = workPostEntry.data.external
+                        ? "noopener noreferrer"
+                        : undefined;
 
-                    return (
-                      <li>
-                        <a
-                          href={url}
-                          target={target}
-                          rel={rel}
-                          class="group block"
-                        >
-                          {content}
-                        </a>
-                      </li>
-                    );
-                  })
-                }
+                      return (
+                        <li>
+                          <a
+                            href={url}
+                            target={target}
+                            rel={rel}
+                            class="block py-2 -mx-2 px-2 rounded-lg hover:bg-accent-light active:bg-accent-light/70 transition-colors"
+                          >
+                            {content}
+                          </a>
+                        </li>
+                      );
+                    })
+                  }
                 </ul>
               </div>
             </section>

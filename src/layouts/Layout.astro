@@ -12,7 +12,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const { title } = Astro.props;
 
-const makeTitle = title ? title + " | " + "Yimi Writing" : "Yimi is Writing";
+const makeTitle = title ? title + " · Yimi Writing" : "Yimi Writing";
 ---
 
 <!doctype html>
@@ -23,10 +23,9 @@ const makeTitle = title ? title + " | " + "Yimi Writing" : "Yimi is Writing";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
     <SEO
       title={makeTitle}
-      description="Yimi is writing."
+      description="Yimi Lu — writer. Always procrastinating, occasionally writing."
       canonical={canonicalURL}
       twitter={{
         creator: "@yimiwriting",
@@ -37,34 +36,30 @@ const makeTitle = title ? title + " | " + "Yimi Writing" : "Yimi is Writing";
         basic: {
           url: canonicalURL,
           type: "website",
-          title: `Yimi Writing`,
+          title: makeTitle,
           image: "",
         },
         image: {
-          alt: "Yimi",
+          alt: "Yimi Writing",
         },
       }}
     />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libertinus+Sans:ital,wght@0,400;0,700;1,400&family=Libertinus+Serif:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Emblema+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
-    <script
-      src="https://kit.fontawesome.com/7d187bbe8e.js"
-      crossorigin="anonymous"></script>
   </head>
-  <body class="min-h-screen flex flex-col bg-hh15-bg font-serif">
+  <body class="min-h-screen flex flex-col bg-bg font-serif text-fg">
     <Navbar />
-    <main class="flex-1 text-hh15-fg">
+    <main class="flex-1">
       <slot />
     </main>
     <Footer />
 
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
       img {
         content-visibility: auto;
       }

@@ -9,19 +9,34 @@ import AboutSection from "../components/aboutsection.astro";
   <Container>
     <Sectionhead>
       <Fragment slot="title">About</Fragment>
-      <!-- <Fragment slot="desc"> Who I am and Where you can find me. </Fragment> -->
     </Sectionhead>
 
-    <div class="flex flex-col gap-4 md:gap-8 mx-auto max-w-3xl mt-16">
+    <div class="flex flex-col gap-6 mx-auto max-w-2xl mt-14">
       <AboutSection title="Bio">
-        Yimi Lu grew up in Shanghai and now pretends to settle in Northern California. She builds code by day and disassembles herself by night to see what remains. Find her at https://www.yimiwriting.com/ 
+        Yimi Lu grew up in Shanghai and now pretends to settle in Northern
+        California. She builds code by day and disassembles herself by night to
+        see what remains.
       </AboutSection>
 
       <AboutSection title="Socials">
-        @yimiwriting
+        <a
+          href="https://twitter.com/yimiwriting"
+          target="_blank"
+          rel="noopener"
+          class="text-muted hover:text-accent transition-colors"
+        >
+          @yimiwriting
+        </a>
       </AboutSection>
 
-      <AboutSection title="Email"> yimiwriting@outlook.com </AboutSection>
+      <AboutSection title="Email">
+        <a
+          href="mailto:yimiwriting@outlook.com"
+          class="text-muted hover:text-accent transition-colors"
+        >
+          yimiwriting@outlook.com
+        </a>
+      </AboutSection>
     </div>
   </Container>
 </Layout>

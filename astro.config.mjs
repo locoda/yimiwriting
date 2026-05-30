@@ -6,8 +6,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astroship.web3templates.com",
-  integrations: [mdx(), sitemap(),  (await import("@playform/compress")).default()],
+  site: "https://www.yimiwriting.com",
+  integrations: [mdx(), sitemap()],
 
   vite: {
     plugins: [tailwindcss()],

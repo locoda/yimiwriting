@@ -6,13 +6,13 @@ interface Props {
 const { category, publishDate } = Astro.props as Props;
 const forthcoming = publishDate > new Date();
 ---
-<div class="inline-flex items-center gap-1 whitespace-nowrap">
-  <span class="text-hh15-accent uppercase tracking-wider">{category}</span>
-  <span class="text-hh15-muted">•</span>
+<div class="inline-flex items-center gap-1 text-sm text-muted">
+  <span class="uppercase tracking-wider text-accent/80 text-xs font-serif font-medium">{category}</span>
+  <span aria-hidden="true">&middot;</span>
   {forthcoming ? (
-    <span class="text-hh15-muted">Forthcoming</span>
+    <span>Forthcoming</span>
   ) : (
-    <time class="text-hh15-muted" datetime={publishDate.toISOString()}>
+    <time datetime={publishDate.toISOString()}>
       {publishDate.toLocaleDateString("en-US", { year: "numeric", month: "long" })}
     </time>
   )}

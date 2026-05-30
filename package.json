@@ -14,16 +14,10 @@
   "dependencies": {
     "@astrojs/mdx": "^5.0.6",
     "@astrojs/sitemap": "^3.7.2",
-    "@iconify-json/bx": "^1.2.3",
-    "@iconify-json/simple-icons": "^1.2.84",
-    "@iconify-json/uil": "^1.2.3",
-    "@playform/compress": "^0.2.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.3.7",
-    "astro-navbar": "^2.4.0",
     "astro-seo": "^1.1.0",
-    "rollup": "4.60.4",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.3.0"
   },

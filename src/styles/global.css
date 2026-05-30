@@ -2,16 +2,51 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-  --color-hh15-bg: #fff7f2;
-  --color-hh15-fg: #33272a;
-  --color-hh15-muted: #594a4e;
-  --color-hh15-card: #fffffe;
-  --color-hh15-accent: #e65073;
-  --color-hh15-accent2: #f4a7b9;
-  --color-hh15-accent3: #9cdba8;
-  --color-hh15-border: #e8d8cf;
+  /* 暖纸墨韵 — 方案 A */
+  --color-bg: #fbf8f3;
+  --color-fg: #2c2a26;
+  --color-muted: #8b8378;
+  --color-card: #ffffff;
+  --color-accent: #8b4513;
+  --color-accent-light: #f5f0ea;
+  --color-border: #e8e0d4;
 
-  --font-serif: "Libertinus Serif", Times, ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-sans: "Libertinus Sans", "Noto Sans SC", system-ui, sans-serif;
-  --font-brand: "Emblema One", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  /* 全部使用衬线体，统一气质 */
+  --font-serif: "Libre Baskerville", "Noto Serif SC", Georgia, "Times New Roman", serif;
+  --font-sans: "Libre Baskerville", "Noto Serif SC", Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: white;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out both;
+}
+
+.animate-fade-in-delayed {
+  animation: fade-in 0.6s ease-out 0.15s both;
 }

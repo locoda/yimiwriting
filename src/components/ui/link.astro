@@ -3,7 +3,7 @@ interface Props {
   href: string;
   size?: "md" | "lg" | "xl";
   block?: boolean;
-  style?: "outline" | "primary" | "inverted" | "muted" | "accent"; // 补上 accent
+  style?: "outline" | "primary" | "inverted" | "muted" | "accent";
   class?: string;
   [x: string]: any;
 }
@@ -20,31 +20,30 @@ const {
 const sizes = {
   lg: "px-5 py-2.5",
   md: "px-4 py-2",
-  xl: "px-6 py-3.5 text-xl font-semibold", // 超大按钮
+  xl: "px-6 py-3.5 text-xl font-semibold",
 };
 
-// 基类：去掉 padding，交给 sizes 管
 const btnBase =
   "inline-flex items-center gap-2 rounded-full text-sm font-medium " +
   "transition-colors duration-150 focus:outline-none " +
-  "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-hh15-accent/60 " +
+  "focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-accent/60 " +
   "disabled:opacity-50 disabled:pointer-events-none";
 
 const styles = {
   primary:
-    "bg-hh15-fg text-hh15-card hover:bg-hh15-fg/70 border border-transparent",
+    "bg-fg text-card hover:bg-fg/70 border border-transparent",
 
   outline:
-    "bg-hh15-card text-hh15-fg border border-hh15-border hover:bg-hh15-card/70",
+    "bg-card text-fg border border-border hover:bg-card/70",
 
   inverted:
-    "bg-hh15-card text-hh15-fg border border-hh15-border hover:bg-hh15-card/90",
+    "bg-card text-fg border border-border hover:bg-card/90",
 
   muted:
-    "bg-transparent text-hh15-fg/80 border border-hh15-border hover:bg-hh15-card hover:text-hh15-fg",
+    "bg-transparent text-fg/80 border border-border hover:bg-card hover:text-fg",
 
   accent:
-    "bg-hh15-accent text-hh15-card hover:bg-hh15-accent/90 border border-transparent",
+    "bg-accent text-white hover:bg-accent/90 border border-transparent",
 };
 ---
 

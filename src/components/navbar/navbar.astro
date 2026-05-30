@@ -1,24 +1,99 @@
 ---
 import Container from "../container.astro";
+
+const currentPath = Astro.url.pathname;
 ---
 
 <Container>
-  <header class="flex justify-between items-center py-5">
-    <a href="/" class="text-lg font-sans">
-      <span class="font-bold text-hh15-fg">Yimi</span><span class="text-hh15-accent">Writing</span>
+  <header class="flex items-center justify-between py-6">
+    <!-- Logo -->
+    <a href="/" class="text-xl font-serif font-semibold tracking-tight hover:opacity-80 transition-opacity">
+      <span class="text-fg">Yimi</span><span class="text-accent">Writing</span>
     </a>
-    <nav class="flex gap-8 text-lg">
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-10">
       <a
         href="/work"
-        class="decoration-2 hover:text-hh15-accent"
-        >Work</a
+        class:list={[
+          "font-serif text-[15px] tracking-wide transition-colors",
+          currentPath === "/work" || currentPath.startsWith("/work/")
+            ? "text-accent font-medium"
+            : "text-muted hover:text-fg",
+        ]}
       >
+        Work
+      </a>
       <a
         href="/about"
-        class="decoration-2 hover:text-hh15-accent"
-        >About</a
+        class:list={[
+          "font-serif text-[15px] tracking-wide transition-colors",
+          currentPath === "/about"
+            ? "text-accent font-medium"
+            : "text-muted hover:text-fg",
+        ]}
       >
+        About
+      </a>
     </nav>
+
+    <!-- Mobile menu toggle -->
+    <button
+      id="menu-toggle"
+      class="md:hidden p-2 text-muted hover:text-fg transition-colors"
+      aria-label="Toggle menu"
+      type="button"
+    >
+      <svg id="menu-icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="3" y1="6" x2="21" y2="6" />
+        <line x1="3" y1="12" x2="21" y2="12" />
+        <line x1="3" y1="18" x2="21" y2="18" />
+      </svg>
+      <svg id="menu-icon-close" class="hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <line x1="6" y1="6" x2="18" y2="18" />
+        <line x1="6" y1="18" x2="18" y2="6" />
+      </svg>
+    </button>
   </header>
+
+  <!-- Mobile Nav Panel -->
+  <div id="mobile-menu" class="hidden md:hidden pb-6 border-b border-border">
+    <nav class="flex flex-col gap-4">
+      <a
+        href="/work"
+        class:list={[
+          "font-serif text-base tracking-wide transition-colors py-1",
+          currentPath === "/work" || currentPath.startsWith("/work/")
+            ? "text-accent font-medium"
+            : "text-muted hover:text-fg",
+        ]}
+      >
+        Work
+      </a>
+      <a
+        href="/about"
+        class:list={[
+          "font-serif text-base tracking-wide transition-colors py-1",
+          currentPath === "/about"
+            ? "text-accent font-medium"
+            : "text-muted hover:text-fg",
+        ]}
+      >
+        About
+      </a>
+    </nav>
+  </div>
 </Container>
 
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  toggle?.addEventListener("click", () => {
+    menu?.classList.toggle("hidden");
+    iconOpen?.classList.toggle("hidden");
+    iconClose?.classList.toggle("hidden");
+  });
+</script>

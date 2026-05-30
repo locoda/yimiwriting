@@ -2,7 +2,6 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import Container from "../../components/container.astro";
-import PostMeta from "../../components/postmeta.astro";
 
 // Generate a new path for every collection entry
 export async function getStaticPaths() {
@@ -20,30 +19,50 @@ const { Content } = await render(entry);
 
 <Layout title={entry.data.title}>
   <Container>
-    <div class="mx-auto max-w-3xl mt-14">
-      <PostMeta
-        category={entry.data.category}
-        publishDate={entry.data.publishDate}
-      />
-      <span class="text-hh15-muted">•</span>
-      <span class="text-hh15-muted">{entry.data.magazine}</span>
+    <article class="max-w-2xl mx-auto mt-14">
+      <!-- Meta -->
+      <div class="flex flex-wrap items-baseline gap-x-2 text-sm text-muted mb-3">
+        <span class="uppercase tracking-wider text-accent/80 text-xs font-serif font-medium">
+          {entry.data.category}
+        </span>
+        <span aria-hidden="true">&middot;</span>
+        <time datetime={entry.data.publishDate.toISOString()}>
+          {entry.data.publishDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+          })}
+        </time>
+        <span aria-hidden="true">&middot;</span>
+        <span>{entry.data.magazine}</span>
+      </div>
+
+      <!-- Title -->
       <h1
-        class="text-4xl lg:text-5xl font-bold lg:tracking-tight mt-1 lg:leading-tight"
+        class="font-serif font-bold text-3xl md:text-4xl lg:text-5xl leading-tight tracking-tight text-fg"
       >
         {entry.data.title}
       </h1>
-    </div>
 
-    <div class="mx-auto prose prose-lg mt-6 max-w-3xl">
-      <Content />
-    </div>
-    <div class="text-center mt-16">
-      <a
-        href="/work"
-        class="bg-[#3b2d2b] text-white px-5 py-3 rounded-md hover:bg-[#2a1f1d] transition"
+      <!-- Content -->
+      <div
+        class="prose prose-lg mt-10 max-w-none prose-a:text-accent prose-a:no-underline hover:prose-a:underline prose-blockquote:border-accent prose-blockquote:bg-accent-light prose-blockquote:py-1 prose-blockquote:px-4 prose-blockquote:not-italic"
       >
-        ← Back to Work
-      </a>
-    </div>
+        <Content />
+      </div>
+
+      <!-- Back link -->
+      <div class="mt-16 pt-8 border-t border-border">
+        <a
+          href="/work"
+          class="inline-flex items-center gap-2 text-sm text-muted hover:text-accent font-serif transition-colors"
+        >
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="19" y1="12" x2="5" y2="12" />
+            <polyline points="12 19 5 12 12 5" />
+          </svg>
+          Back to Work
+        </a>
+      </div>
+    </article>
   </Container>
 </Layout>
