@@ -5,15 +5,15 @@
 <section
   class="relative flex flex-col items-center justify-center text-center min-h-[calc(70vh)] overflow-hidden"
 >
-  <!-- Decorative ring wrapper — flex centers the rings without relying on transform -->
-  <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden" aria-hidden="true">
+  <!-- Decorative overlapping rings — bottom-right corner, fully visible -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
     <div
       class="deco-ring animate-float"
-      style="width: clamp(280px, 50vw, 480px); height: clamp(280px, 50vw, 480px);"
+      style="width: clamp(260px, 45vw, 420px); height: clamp(260px, 45vw, 420px); top: auto; bottom: 8%; left: auto; right: 5%;"
     ></div>
     <div
-      class="deco-ring animate-float"
-      style="width: clamp(360px, 60vw, 600px); height: clamp(360px, 60vw, 600px); animation-delay: 1.5s; animation-duration: 12s;"
+      class="deco-ring animate-float-slow"
+      style="width: clamp(340px, 55vw, 520px); height: clamp(340px, 55vw, 520px); top: auto; bottom: 5%; left: auto; right: 8%;"
     ></div>
   </div>
 
