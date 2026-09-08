@@ -20,11 +20,15 @@ jobs:
           node-version: 22
           cache: pnpm
 
-      # Fails if pnpm-lock.yaml is out of sync with package.json — including a
-      # missing `overrides:` block, which is what broke the Cloudflare Pages
-      # build in #122.
+      # Fails if pnpm-lock.yaml is out of sync with package.json, so a stale
+      # lockfile is caught here rather than in the Cloudflare Pages build.
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm build
 
       - run: pnpm test
+
+      # Replaces the old `pnpm.overrides` advisory floors for lodash and yaml.
+      # Those only covered two packages and had to be hand-maintained; this
+      # checks the whole tree against the advisory database on every PR.
+      - run: pnpm audit --audit-level=moderate
