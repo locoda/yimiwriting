@@ -7,8 +7,22 @@ version: 2
 updates:
   - package-ecosystem: "npm" # See documentation for possible values
     directory: / # Location of package manifests
+
+    # Monthly, not weekly: this is a static site whose dependencies are almost
+    # entirely build-time, so routine version churn has little value. Security
+    # updates are alert-triggered and ignore this interval entirely, so they
+    # still arrive as soon as an advisory is published.
     schedule:
-      interval: weekly
+      interval: monthly
+
+    # Wait for a release to settle before opening a PR. This collapses runs of
+    # rapid patch releases into a single bump, and leaves a window for a
+    # compromised release to be yanked before we open a PR for it.
+    # Applies to version updates only — never to security updates.
+    cooldown:
+      default-days: 7
+      semver-major-days: 14
+
     groups:
       # major:
       #   update-types:
