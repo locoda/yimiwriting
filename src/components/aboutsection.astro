@@ -1,7 +1,10 @@
 ---
 const { title } = Astro.props;
 ---
-<h2 class="font-semibold font-serif text-xl text-fg tracking-wide">{title}</h2>
-<p class="text-base leading-relaxed text-muted pb-4">
-  <slot />
-</p>
+
+<section class="py-6 border-b border-border last:border-b-0">
+  <h2 class="kicker text-muted mb-3">{title}</h2>
+  <div class="font-serif text-xl md:text-2xl text-fg leading-relaxed">
+    <slot />
+  </div>
+</section>
