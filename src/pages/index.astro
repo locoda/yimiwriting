@@ -1,11 +1,151 @@
 ---
-import Container from "../components/container.astro";
-import Hero from "../components/hero.astro";
+import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+
+const workEntries = await getCollection("work", ({ data }) => !data.draft);
+workEntries.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf());
+const latest = workEntries.slice(0, 3);
+
+const fmt = (d: Date) =>
+  d.toLocaleDateString("en-US", { month: "long", year: "numeric" });
 ---
 
-<Layout title="">
-  <Container>
-    <Hero />
+<Layout
+  title="Yimi Lu — Writer"
+  description="Yimi Lu writes fiction, nonfiction, and poetry. Always procrastinating, occasionally writing."
+>
+  <Container class="flex-1 flex flex-col md:block">
+    <section id="hero" class="pt-[17svh] md:pt-24 pb-0 md:pb-16 flex-1 flex flex-col md:block">
+      <p class="kicker text-muted">Fiction · Nonfiction · Poetry</p>
+
+      <h1 class="font-serif font-bold tracking-[-0.02em] leading-[1.02] text-[clamp(3rem,9vw,7.5rem)] mt-6">
+        <span class="block text-fg">Yimi</span>
+        <span class="block text-flare">Writing</span>
+      </h1>
+
+      <div class="rule mt-8 md:mt-10"></div>
+
+      <div class="grid md:grid-cols-2 gap-12 md:gap-16 mt-8 md:mt-10">
+        <div>
+          <p class="font-serif text-xl md:text-2xl leading-relaxed text-fg">
+            Always procrastinating, <em class="text-flare not-italic font-bold">occasionally writing.</em>
+          </p>
+          <p class="text-muted mt-5 leading-relaxed max-w-md">
+            Yimi Lu grew up in Shanghai and now pretends to settle in Northern California.
+            She writes about people who don't say what they mean.
+          </p>
+          <a
+            href="/work"
+            class="mt-8 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-white font-sans text-sm font-semibold tracking-[0.04em] hover:bg-accent-bright transition-colors"
+          >
+            Read My Work
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        {/* Latest column: desktop only — mobile ends at Read My Work */}
+        <div class="hidden md:block">
+          <p class="kicker text-muted mb-2">Latest</p>
+          <ul>
+            {latest.map((entry) => {
+              const url = entry.data.external ? entry.data.external : `/work/${entry.id}`;
+              const target = entry.data.external ? "_blank" : undefined;
+              const rel = entry.data.external ? "noopener noreferrer" : undefined;
+              return (
+                <li class="py-5 border-b border-border last:border-b-0">
+                  <a href={url} target={target} rel={rel} class="group block">
+                    <p class="font-serif text-xl md:text-2xl text-fg leading-snug group-hover:text-accent transition-colors">
+                      {entry.data.title}
+                    </p>
+                    <p class="font-sans text-xs tracking-[0.08em] uppercase text-muted mt-2">
+                      {entry.data.magazine} · {fmt(entry.data.publishDate)}
+                    </p>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+          <a href="/work" class="link-accent font-sans text-sm mt-4 inline-block">All work →</a>
+        </div>
+      </div>
+    </section>
   </Container>
+
+  <!-- Site intro: book-opening curtain, homepage only, once per session -->
+  <div id="site-intro" class="site-intro" aria-hidden="true">
+    <p class="site-intro-title">
+      <span class="block text-fg">Yimi</span>
+      <span class="block text-flare">Writing</span>
+    </p>
+  </div>
+  <noscript><style>#site-intro { display: none !important; }</style></noscript>
+  <script is:inline>
+    (function () {
+      var root = document.documentElement;
+      var intro = document.getElementById("site-intro");
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var seen = false;
+      try {
+        seen = window.sessionStorage.getItem("yimi-intro-seen") === "1";
+      } catch (e) {}
+      function enter() {
+        root.classList.remove("intro-lock");
+      }
+      if (!intro || reduce || seen) {
+        if (intro) intro.remove();
+        enter();
+        return;
+      }
+      root.classList.add("intro-lock");
+      // Title rises in (0.7s), hold, then the curtain lifts to reveal the page.
+      window.setTimeout(function () {
+        intro.classList.add("leaving");
+      }, 1800);
+      window.setTimeout(function () {
+        enter();
+      }, 2150);
+      window.setTimeout(function () {
+        intro.remove();
+        try {
+          window.sessionStorage.setItem("yimi-intro-seen", "1");
+        } catch (e) {}
+      }, 2850);
+    })();
+  </script>
 </Layout>
+
+<style>
+  /* ── Site intro curtain ── */
+  .site-intro {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+    transition: transform 0.9s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+  .site-intro-title {
+    font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+    font-weight: 700;
+    font-size: clamp(3.5rem, 15vw, 6.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    text-align: center;
+    animation: fade-in-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.15s both;
+  }
+  .site-intro.leaving {
+    transform: translateY(-101%);
+  }
+  :global(html.intro-lock) {
+    overflow: hidden;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .site-intro {
+      display: none;
+    }
+  }
+</style>

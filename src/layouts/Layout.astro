@@ -48,13 +48,31 @@ const makeTitle = title ? title + " · Yimi Writing" : "Yimi Writing";
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;500;600;700&family=Zilla+Slab:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
+    <meta name="theme-color" content="#fffefa" />
+
+    <!-- Theme init: runs before paint to avoid flash -->
+    <script is:inline>
+      (function () {
+        try {
+          var t = localStorage.getItem("yimi-theme");
+          if (!t) {
+            t = window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light";
+          }
+          document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {
+          document.documentElement.setAttribute("data-theme", "light");
+        }
+      })();
+    </script>
   </head>
   <body class="min-h-screen flex flex-col bg-bg font-serif text-fg">
     <Navbar />
-    <main class="flex-1">
+    <main class="flex-1 flex flex-col">
       <slot />
     </main>
     <Footer />
