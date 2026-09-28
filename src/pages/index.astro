@@ -37,14 +37,14 @@ const fmt = (d: Date) =>
           </p>
           <a
             href="/work"
-            class="mt-8 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-white font-sans text-sm font-semibold tracking-[0.04em] hover:bg-accent-bright transition-colors"
+            class="group mt-8 inline-flex items-center gap-2.5 px-7 py-3.5 rounded-full bg-accent text-white font-sans text-sm font-semibold tracking-[0.04em] hover:bg-accent-bright transition-colors"
           >
-            Read My Work
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+            Read My Works
+            <svg class="transition-transform duration-300 group-hover:translate-x-0.5" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
           </a>
         </div>
 
-        {/* Latest column: desktop only — mobile ends at Read My Work */}
+        {/* Latest column: desktop only — mobile ends at Read My Works */}
         <div class="hidden md:block">
           <p class="kicker text-muted mb-2">Latest</p>
           <ul>
@@ -66,7 +66,6 @@ const fmt = (d: Date) =>
               );
             })}
           </ul>
-          <a href="/work" class="link-accent font-sans text-sm mt-4 inline-block">All work →</a>
         </div>
       </div>
     </section>
@@ -80,7 +79,7 @@ const fmt = (d: Date) =>
     </p>
   </div>
   <noscript><style>#site-intro { display: none !important; }</style></noscript>
-  <script is:inline>
+  <script is:inline data-astro-rerun>
     (function () {
       var root = document.documentElement;
       var intro = document.getElementById("site-intro");
@@ -92,7 +91,11 @@ const fmt = (d: Date) =>
       function enter() {
         root.classList.remove("intro-lock");
       }
-      if (!intro || reduce || seen) {
+      // View-transition swaps share the same window: the curtain is a
+      // full-load-only moment, never replay it when Astro swaps back to /.
+      var isSwap = !!window.__yimiIntroRan;
+      window.__yimiIntroRan = true;
+      if (!intro || reduce || seen || isSwap) {
         if (intro) intro.remove();
         enter();
         return;

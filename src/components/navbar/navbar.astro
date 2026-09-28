@@ -20,16 +20,16 @@ const isAbout = currentPath === "/about";
         <a
           href="/work"
           class:list={[
-            "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors",
+            "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors u-draw",
             isWork ? "text-accent" : "text-muted hover:text-fg",
           ]}
         >
-          Work
+          Works
         </a>
         <a
           href="/about"
           class:list={[
-            "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors",
+            "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors u-draw",
             isAbout ? "text-accent" : "text-muted hover:text-fg",
           ]}
         >
@@ -79,16 +79,16 @@ const isAbout = currentPath === "/about";
       <a
         href="/work"
         class:list={[
-          "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors py-1",
+          "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors py-1 u-draw",
           isWork ? "text-accent" : "text-muted hover:text-fg",
         ]}
       >
-        Work
+        Works
       </a>
       <a
         href="/about"
         class:list={[
-          "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors py-1",
+          "font-sans text-sm font-medium tracking-[0.08em] uppercase transition-colors py-1 u-draw",
           isAbout ? "text-accent" : "text-muted hover:text-fg",
         ]}
       >
@@ -99,36 +99,44 @@ const isAbout = currentPath === "/about";
 </Container>
 
 <script>
-  const toggle = document.getElementById("menu-toggle");
-  const menu = document.getElementById("mobile-menu");
-  const iconOpen = document.getElementById("menu-icon-open");
-  const iconClose = document.getElementById("menu-icon-close");
+  // Re-init after every view-transition swap: Astro swaps the DOM without
+  // re-running this bundled script, so element refs would go stale.
+  function initNavbar() {
+    const toggle = document.getElementById("menu-toggle");
+    if (!toggle || toggle.dataset.init) return;
+    toggle.dataset.init = "1";
+    const menu = document.getElementById("mobile-menu");
+    const iconOpen = document.getElementById("menu-icon-open");
+    const iconClose = document.getElementById("menu-icon-close");
 
-  toggle?.addEventListener("click", () => {
-    menu?.classList.toggle("hidden");
-    iconOpen?.classList.toggle("hidden");
-    iconClose?.classList.toggle("hidden");
-  });
+    toggle.addEventListener("click", () => {
+      menu?.classList.toggle("hidden");
+      iconOpen?.classList.toggle("hidden");
+      iconClose?.classList.toggle("hidden");
+    });
 
-  // Theme toggle
-  const themeBtn = document.getElementById("theme-toggle");
-  const iconMoon = document.getElementById("icon-moon");
-  const iconSun = document.getElementById("icon-sun");
+    // Theme toggle
+    const themeBtn = document.getElementById("theme-toggle");
+    const iconMoon = document.getElementById("icon-moon");
+    const iconSun = document.getElementById("icon-sun");
 
-  const syncThemeIcon = () => {
-    const dark = document.documentElement.getAttribute("data-theme") === "dark";
-    iconMoon?.classList.toggle("hidden", dark);
-    iconSun?.classList.toggle("hidden", !dark);
-  };
-  syncThemeIcon();
-
-  themeBtn?.addEventListener("click", () => {
-    const html = document.documentElement;
-    const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
-    html.setAttribute("data-theme", next);
-    try {
-      localStorage.setItem("yimi-theme", next);
-    } catch (e) {}
+    const syncThemeIcon = () => {
+      const dark = document.documentElement.getAttribute("data-theme") === "dark";
+      iconMoon?.classList.toggle("hidden", dark);
+      iconSun?.classList.toggle("hidden", !dark);
+    };
     syncThemeIcon();
-  });
+
+    themeBtn?.addEventListener("click", () => {
+      const html = document.documentElement;
+      const next = html.getAttribute("data-theme") === "dark" ? "light" : "dark";
+      html.setAttribute("data-theme", next);
+      try {
+        localStorage.setItem("yimi-theme", next);
+      } catch (e) {}
+      syncThemeIcon();
+    });
+  }
+  initNavbar();
+  document.addEventListener("astro:page-load", initNavbar);
 </script>
