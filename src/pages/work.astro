@@ -18,10 +18,10 @@ const now = new Date();
 const genres = ["fiction", "non-fiction", "poetry"];
 ---
 
-<Layout title="Work">
+<Layout title="Works">
   <Container>
     <Sectionhead>
-      <Fragment slot="title">Work</Fragment>
+      <Fragment slot="title">Works</Fragment>
     </Sectionhead>
 
     <main class="mt-10 md:mt-12 space-y-12 md:space-y-14">
@@ -70,12 +70,13 @@ const genres = ["fiction", "non-fiction", "poetry"];
                               {workPostEntry.data.title}
                             </h3>
                             <p class="font-sans text-xs tracking-[0.08em] uppercase text-muted mt-2">
-                              <span class="text-accent">{workPostEntry.data.category}</span> · {formattedDate} ·{" "}
-                              {workPostEntry.data.magazine}
+                              <span class="text-accent">{workPostEntry.data.category}</span> · {formattedDate}
+                              <br class="md:hidden" />
+                              <span class="hidden md:inline"> · </span>{workPostEntry.data.magazine}
                             </p>
                           </div>
                           <svg
-                            class="shrink-0 mt-1.5 text-accent"
+                            class="shrink-0 mt-1.5 text-accent transition-transform duration-300 group-hover:translate-x-1"
                             width="16" height="16" viewBox="0 0 24 24"
                             fill="none" stroke="currentColor"
                             stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"

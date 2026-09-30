@@ -1,5 +1,6 @@
 ---
 import { SEO } from "astro-seo";
+import { ClientRouter } from "astro:transitions";
 import Footer from "../components/footer.astro";
 import Navbar from "../components/navbar/navbar.astro";
 import "../styles/global.css";
@@ -52,6 +53,7 @@ const makeTitle = title ? title + " · Yimi Writing" : "Yimi Writing";
       rel="stylesheet"
     />
     <meta name="theme-color" content="#fffefa" />
+    <ClientRouter />
 
     <!-- Theme init: runs before paint to avoid flash -->
     <script is:inline>

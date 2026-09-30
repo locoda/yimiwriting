@@ -249,3 +249,50 @@ button:focus-visible {
     animation: none;
   }
 }
+
+/* ── Underline draw on hover (nav, quiet links) ── */
+.u-draw {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: left calc(100% - 2px);
+  transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 3px;
+}
+.u-draw:hover {
+  background-size: 100% 1px;
+}
+
+/* ── Page-turn view transitions ── */
+::view-transition-old(root) {
+  animation: page-turn-out 0.32s cubic-bezier(0.5, 0, 0.75, 0) both;
+}
+::view-transition-new(root) {
+  animation: page-turn-in 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+@keyframes page-turn-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-14px);
+  }
+}
+@keyframes page-turn-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
