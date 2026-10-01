@@ -12,17 +12,17 @@
     "test": "node --test"
   },
   "dependencies": {
-    "@astrojs/mdx": "^8.0.0",
+    "@astrojs/mdx": "^8.0.2",
     "@astrojs/sitemap": "^3.7.4",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.3.1",
+    "astro": "^7.3.4",
     "astro-seo": "^1.2.0",
     "sharp": "^0.35.4",
     "tailwindcss": "^4.3.3"
   },
   "optionalDependencies": {
     "@esbuild/darwin-x64": "^0.28.2",
-    "@rollup/rollup-darwin-x64": "^4.63.1"
+    "@rollup/rollup-darwin-x64": "^4.63.4"
   }
 }
