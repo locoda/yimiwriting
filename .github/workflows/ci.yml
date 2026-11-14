@@ -17,7 +17,9 @@ jobs:
 
       - uses: actions/setup-node@v5
         with:
-          node-version: 22
+          # Same Node as Cloudflare Pages, so an engines bump in a dependency
+          # (e.g. astro requiring a newer 22.x) fails here, not only on Pages.
+          node-version-file: .node-version
           cache: pnpm
 
       # Fails if pnpm-lock.yaml is out of sync with package.json, so a stale
